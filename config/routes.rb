@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :books
 
   get 'users/:id', to: 'users#show'
+  resources :posts
 end

@@ -29,7 +29,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
 /app/assets/builds/*
 !/app/assets/builds/.keep
 .env*
+
+# Ignore application configuration
+/config/application.yml
