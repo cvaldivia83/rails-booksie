@@ -1,13 +1,37 @@
-<div class="w-full shadow-md py-6 px-8 flex justify-between">
-  <div class="flex">
-    <%= link_to 'Books', books_path, class: 'navbar-link'  %>
-    <%= link_to 'Blog', posts_path, class: 'navbar-link'  %>
+<div class="data" data-controller="navbar">
+  <div class="w-full shadow-md py-4 px-8 flex justify-between items-center">
+    <div class="flex">
+      <%= link_to 'Books', books_path, class: 'navbar-link'  %>
+      <%= link_to 'Blog', posts_path, class: 'navbar-link'  %>
+    </div>
+
+    <% if user_signed_in? %>
+
+      <div class="">
+        <%= cl_image_tag current_user.photo.key, crop: :fill, class: "navbar-avatar hidden md:block", data: {navbar_target: "avatar", action: 'click->navbar#dropdown'}  %>
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 md:hidden" data-action="click->navbar#dropdown">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+
+      </div>
+
+    <% else %>
+
+      <div>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn-violet-solid mr-2'  %>
+        <%= link_to 'Sign In', user_session_path, class: 'btn-violet-outlined'  %>
+      </div>
+
+    <% end %>
   </div>
 
-  <div>
-    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn-violet-solid mr-2'  %>
-    <%= link_to 'Sign In', user_session_path, class: 'btn-violet-outlined'  %>
-  </div>
+  <%# Dropdown menu %>
 
+  <div class="navbar-menu hidden" data-navbar-target="menu">
+    <%= link_to "Action", "#", class: "navbar-menu_item" %>
+    <%= link_to "Another action", "#", class: "navbar-menu_item" %>
+    <%= link_to "Log out", "#", class: "navbar-menu_item", data: {turbo_method: :delete} %>
+  </div>
 
 </div>
