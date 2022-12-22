@@ -10,4 +10,7 @@ export default class extends Controller {
   dropdown() {
     this.menuTarget.classList.toggle("hidden");
   }
+  close() {
+    this.menuTarget.classList.toggle("hidden")
+  }
 }
