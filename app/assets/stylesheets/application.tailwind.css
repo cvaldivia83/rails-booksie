@@ -33,10 +33,13 @@
   .devise-icon {
     @apply w-16 h-16 p-4 bg-neutral-100 rounded-full mx-auto ring-1 ring-neutral-200
   }
+  .devise-image {
+    @apply w-3/4 mt-8
+  }
   .devise-title {
     @apply text-center font-medium tracking-wide p-2 text-2xl text-neutral-700
   }
   .devise-paragraph {
-    @apply mx-auto text-center font-light text-xs text-neutral-500 w-2/3 mt-2 mb-8
+    @apply mx-auto text-center font-light text-xs text-neutral-500 w-2/3 mt-2 mb-4
   }
 }
