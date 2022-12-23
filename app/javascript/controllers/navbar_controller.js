@@ -7,10 +7,17 @@ export default class extends Controller {
     // console.log(this.avatarTarget);
     // console.log(this.menuTarget);
   }
-  dropdown() {
+  dropdown(event) {
+    event.stopPropagation();
+
     this.menuTarget.classList.toggle("hidden");
+
+    document.addEventListener('click', event => {
+      if (event.target.closest('menu') === null) {
+        this.menuTarget.classList.add("hidden");
+      }
+    })
   }
-  close() {
-    this.menuTarget.classList.toggle("hidden")
-  }
+
+
 }

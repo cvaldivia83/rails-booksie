@@ -1,5 +1,13 @@
 <div class="container mx-auto my-4 w-2/3">
-  <h2>Sign up</h2>
+  <div class="introduction mt-4">
+
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#c084fc" class="devise-icon">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+    </svg>
+
+    <h1 class="devise-title">Welcome!</h1>
+    <p class="devise-paragraph">Welcome to Booksie. How have you been reading? Sign up and let's read together.</p>
+  </div>
 
    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= f.error_notification %>

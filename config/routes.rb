@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :books
 
-  get 'users/:id', to: 'users#show'
+  resources :users, only: :show
   resources :posts
 end
