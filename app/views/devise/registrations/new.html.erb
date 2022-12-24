@@ -24,32 +24,32 @@
                     label: false,
                     placeholder: 'E-mail',
                     autofocus: true,
-                    input_html: { autocomplete: "email", class: 'devise-form-input text-sm text-neutral-500' }%>
+                    input_html: { autocomplete: "email", class: 'devise-form-input' }%>
         <%= f.input :username,
                     required: true,
                     label: false,
                     placeholder: 'Username',
                     autofocus: true,
-                    input_html: { autocomplete: "email", class: 'devise-form-input text-sm text-neutral-500' }%>
-        <%= f.input :photo, as: :file, label: false, input_html: {class: 'my-2 file:bg-violet-100 file:text-sm file:font-semibold file:text-violet-700 file:p-2 file:border-0 hover:file:bg-violet-200 text-sm text-neutral-500'} %>
-        <div class="grid grid-cols-2 gap-2">
+                    input_html: { autocomplete: "email", class: 'devise-form-input' }%>
+        <%= f.input :photo, as: :file, label: false, input_html: {class: 'devise-file-input'} %>
+        <div class="md:grid md:grid-cols-2 md:gap-2">
           <%= f.input :password,
                       required: true,
                       label: false,
                       placeholder: 'Password',
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password", class: 'devise-form-input text-sm text-neutral-500' } %>
+                      input_html: { autocomplete: "new-password", class: 'devise-form-input' } %>
           <%= f.input :password_confirmation,
                       required: true,
                       label: false,
                       placeholder: 'Confirm password',
-                      input_html: { autocomplete: "new-password", class: 'devise-form-input text-sm text-neutral-500' } %>
+                      input_html: { autocomplete: "new-password", class: 'devise-form-input' } %>
         </div>
 
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up", class: 'btn-violet-solid w-full' %>
+        <%= f.button :submit, "Sign up", class: 'btn-violet-solid w-full mt-2' %>
       </div>
     <% end %>
 
