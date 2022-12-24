@@ -10,17 +10,19 @@
       <div class="">
         <%= cl_image_tag current_user.photo.key, crop: :fill, class: "navbar-avatar hidden md:block", data: {navbar_target: "avatar", action: 'click->navbar#dropdown'}, tabindex: "0"  %>
 
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 md:hidden" data-action="click->navbar#dropdown">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-
       </div>
 
     <% else %>
 
-      <div>
+      <div class="hidden md:inline">
         <%= link_to 'Sign Up', new_user_registration_path, class: 'btn-violet-solid mr-2'  %>
         <%= link_to 'Sign In', user_session_path, class: 'btn-violet-outlined'  %>
+      </div>
+
+      <div class="inline md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-neutral-700" data-action="click->navbar#dropdownMobile">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
       </div>
 
     <% end %>
@@ -35,6 +37,11 @@
       <%= link_to "Another action", "#", class: "navbar-menu_item" %>
       <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
       class: "navbar-menu_item" %>
+    </div>
+  <% else %>
+    <div class="navbar-menu hidden" data-navbar-target="mobileMenu" id="mobile-menu">
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'navbar-menu_item'  %>
+      <%= link_to 'Sign In', user_session_path, class: 'navbar-menu_item'  %>
     </div>
   <% end %>
 </div>
