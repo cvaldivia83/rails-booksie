@@ -13,7 +13,7 @@ google_api= ENV["GOOGLE_BOOK_API"]
 
 puts "Starting to seed user"
 
-user = User.new(email: "valdivia.carla@gmail.com", password: 123456)
+user = User.new(email: "valdivia.carla@gmail.com", password: 123456, username: 'queen_c')
 
 portrait = URI.open("https://newprofilepic2.photo-cdn.net//assets/images/article/profile.webp")
 

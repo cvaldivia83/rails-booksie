@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :set_user
+
+  def set_user
+    @user = current_user
+  end
+
   include Pundit::Authorization
 
   # Pundit: allow-list approach
