@@ -7,7 +7,7 @@ export default class extends Controller {
   connect() {
     var options = {
       strings: ["reading more, ^1000 reading better"],
-      typeSpeed: 50,
+      typeSpeed: 80,
       loop: true
     };
     var typed = new Typed(this.mottoTarget, options);
