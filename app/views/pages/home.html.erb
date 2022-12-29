@@ -1,11 +1,11 @@
-<div class="relative h-64">
+<div class="relative h-80 flex justify-evenly items-center" data-controller="hero">
   <div class="hero-text">
-    <h2 class="text-black text-xs tracking-wider">reading more, reading better</h2>
+    <h2 class="text-black text-xs tracking-wider my-4"><span class="typed" data-hero-target="motto"></span></h2>
     <h1 class="text-6xl font-bold tracking-tighter">Booksie</h1>
-    <p>Connect to your next favorite book.</p>
+    <p class="mb-8">Connect to your next favorite book.</p>
     <%= link_to 'Get Started', new_user_registration_path, class: 'btn-violet-pink-solid'  %>
   </div>
-  <div class="hero-image">
-    <img src="" alt="">
+  <div class="hero-image mt-8 hidden md:block">
+    <img src="https://res.cloudinary.com/dd7pbokmj/image/upload/v1672260732/clip-reading-books_wvdzex.png" alt="" class="">
   </div>
 </div>

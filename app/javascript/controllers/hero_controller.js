@@ -1,0 +1,15 @@
+import { Controller } from "@hotwired/stimulus"
+import Typed from "typed.js";
+
+// Connects to data-controller="hero"
+export default class extends Controller {
+  static targets = ['motto']
+  connect() {
+    var options = {
+      strings: ["reading more, ^1000 reading better"],
+      typeSpeed: 50,
+      loop: true
+    };
+    var typed = new Typed(this.mottoTarget, options);
+  }
+}
