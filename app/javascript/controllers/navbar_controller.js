@@ -30,4 +30,12 @@ export default class extends Controller {
     })
   }
 
+  updateNavbar() {
+    if (window.scrollY >= window.innerHeight) {
+      this.element.classList.add("shadow-md", "bg-white");
+    } else {
+      this.element.classList.remove("shadow-md",  "bg-white");
+    }
+  }
+
 }
