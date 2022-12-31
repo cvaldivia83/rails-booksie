@@ -1,3 +1,13 @@
-<div class="">
-  <h1>Welcome!</h1>
+<div class="w-full h-56 p-8 bg-neutral-100 rounded-bl-[70px]">
+  <div class="w-full flex justify-around items-center">
+    <h1 class="font-bold text-3xl text-neutral-700">Hello, <span class="italic">@<%= current_user.username %></span></h1>
+    <div>
+      <h2 class="uppercase font-semibold md:text-left text-center text-neutral-700">currently reading</h2>
+
+    </div>
+  </div>
+</div>
+
+<div class="container px-8">
+  <%= image_tag 'https://res.cloudinary.com/dd7pbokmj/image/upload/v1672462192/books_pvqvm0.webp', class: 'rounded-lg w-3/4 relative bottom-10' %>
 </div>
