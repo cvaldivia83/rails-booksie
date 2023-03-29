@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :set_user
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -13,5 +14,10 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(user)
     welcome_path
+  end
+
+  def set_user
+    # Need to set up the user to use the navbar with link to user profile
+    @user = current_user
   end
 end
