@@ -11,5 +11,9 @@ Rails.application.routes.draw do
   resources :posts, only: %i[index show] do
     resources :comments, only: %i[new create]
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    collection do
+      get :super_booksie
+    end
+  end
 end
