@@ -1,24 +1,48 @@
-# README
+# Booksie - Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Booksie Ruby On Rails App](https://res.cloudinary.com/dd7pbokmj/image/upload/v1680132693/Screen_Shot_2023-03-29_at_20.28.34_zp97yk.png)
 
-Things you may want to cover:
+This is a  project created to integrate my portfolio as a web developer.
 
-* Ruby version
+In Le Wagon's Web Development Bootcamp we are asked to code a comparable AirBnb app, where we can choose what we want to rent.
 
-* System dependencies
+This projects uses: **MVC pattern**, **Ruby On Rails**, **HTML**, **CSS,** **Tailwind**, **Javascript**, **Stimulus**, **PostgreSQL**.
 
-* Configuration
+### Ruby version
 
-* Database creation
+	ruby  "3.1.2"
 
-* Database initialization
+### Rails version
 
-* How to run the test suite
+    Rails 7.0.4.2
 
-* Services (job queues, cache servers, search engines, etc.)
+### Node version
 
-* Deployment instructions
+    v14.15.0
 
-* ...
+## Deploy
+
+To use and test Booksie:
+
+ 1. [You can download a zip file from Github.](https://github.com/cvaldivia83/rails-booksie/archive/refs/heads/main.zip)
+ 2. Or you can click on the 'Code' green button and clone the directory directly into your computer using  CLI.
+
+After unzipping and saving the files into your computer, you will need to navigate to the app directory and run those commands in your terminal:
+
+ 1. `bundle install`
+ 2. `yarn install`
+ 3. `rails db:create db:migrate db:seed`
+ 4. `rails tailwindcss:build`
+
+To run the app in your local server:
+
+
+ 1. Navigate to the app directory and type the following command in your terminal:
+
+	    rails s
+
+   2. Open your browser and in the address bar type:
+
+		   localhost:3000
+
+	  There you go, you are all set to start using Booksie.

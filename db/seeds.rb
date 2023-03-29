@@ -44,7 +44,7 @@ booksie = [true, false].sample
     puts "Created user n.#{i + 1}"
   else
     user = User.new(
-      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: false, super_booksie: booksie
+      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: false
     )
 
     if email[i] == "patoche" || email[i] == 'kiko' || email[i] == 'mauro' || email[i] == 'dedemenezes'
