@@ -6,6 +6,8 @@ puts 'Destroying all books and users from DB'
 
 User.destroy_all
 Book.destroy_all
+Comment.destroy_all
+Post.destroy_all
 
 puts 'Starting to seed users'
 
@@ -28,10 +30,12 @@ portrait_men = [
   'https://cdn.pixabay.com/photo/2020/12/14/15/59/man-5831295_1280.jpg'
 ]
 
+booksie = [true, false].sample
+
 10.times do |i|
   if i == 0
     user = User.new(
-      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: true
+      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: true, super_booksie: true
     )
     portrait = URI.open(portrait_women[i])
     user.photo.attach(io: portrait, filename: "#{email[i]}.jpg", content_type: 'image/webp')
@@ -40,7 +44,7 @@ portrait_men = [
     puts "Created user n.#{i + 1}"
   else
     user = User.new(
-      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: false
+      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: false, super_booksie: booksie
     )
 
     if email[i] == "patoche" || email[i] == 'kiko' || email[i] == 'mauro' || email[i] == 'dedemenezes'
@@ -102,7 +106,7 @@ puts 'Created 1 post...'
 
 3.times do |i|
   comment = Comment.new(
-    comment: Faker::Lorem.sentence(word_count: rand(11..25), supplemental: false, random_words_to_add: rand(1..7)),
+    content: Faker::Lorem.sentence(word_count: rand(11..25), supplemental: false, random_words_to_add: rand(1..7)),
     date: Date.new(2023, rand(1..12), rand(1..27)),
     post: post,
     user: users[2..10].sample
