@@ -51,6 +51,9 @@ gem "devise"
 # Simple Form
 gem 'simple_form'
 
+# Faker
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+
 # Cloudinary
 gem "dotenv-rails", groups: [:development, :test]
 

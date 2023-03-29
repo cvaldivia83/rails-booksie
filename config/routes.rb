@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   get "/welcome", to: "pages#welcome"
   resources :books, only: [:index]
+  resources :posts, only: [:index, :show]
 end
