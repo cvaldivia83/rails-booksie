@@ -48,6 +48,9 @@ gem "bootsnap", require: false
 # Devise - authentication
 gem "devise"
 
+# Pundit - authorization
+gem "pundit"
+
 # Simple Form
 gem 'simple_form'
 
