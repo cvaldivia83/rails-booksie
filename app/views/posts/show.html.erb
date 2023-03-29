@@ -1,1 +1,15 @@
-<% @post.title %>
+
+<h1><%= @post.title %></h1>
+<h2><%= @post.author %></h2>
+
+<p><%= @post.date %></p>
+
+<p><%= @post.content %></p>
+
+<% @post.comments.each do |comment| %>
+  <div class="comment-card">
+    <%= comment.date %>
+    <%= comment.content %>
+    <%= comment.user.username %>
+  </div>
+<% end %>

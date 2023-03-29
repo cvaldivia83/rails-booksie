@@ -2,7 +2,6 @@
 
 <% @posts.each do |post| %>
   <div class="post-card">
-    <%= post.title %>
-
+    <%= link_to post.title, post_path(post) %>
   </div>
 <% end %>
