@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = policy_scope(Book)
   end
 end
