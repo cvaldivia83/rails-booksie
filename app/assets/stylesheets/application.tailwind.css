@@ -39,19 +39,19 @@
   /* Devise Forms */
 
   .devise-form-input {
-    @apply bg-neutral-100 border-none focus:ring-2 focus:ring-neutral-300 mt-2 text-sm text-neutral-500
+    @apply bg-neutral-100 border-none focus:ring-2 focus:ring-neutral-300 mt-4 text-sm text-neutral-500 w-full
   }
   .devise-remember-me-input {
-    @apply ring-1 ring-violet-400 border-0 focus:ring-violet-500 focus:ring-2  focus:text-violet-400
+    @apply ring-2 rounded-sm ring-violet-400 border-0 focus:ring-violet-500 focus:ring-2  focus:text-violet-400 mr-2
   }
   .devise-remember-me-label {
-    @apply text-sm text-neutral-700 ml-2
+    @apply text-sm text-neutral-700 font-medium
   }
   .devise-icon {
     @apply w-16 h-16 p-4 bg-neutral-100 rounded-full mx-auto ring-1 ring-neutral-200
   }
   .devise-image {
-    @apply w-[20.6rem] mt-12
+    @apply h-[20.6rem] w-3/4 mt-12
   }
   .devise-title {
     @apply text-center font-medium tracking-wide p-2 text-2xl text-neutral-700
@@ -66,12 +66,20 @@
     @apply flex justify-between items-center mx-auto p-2 mt-2
   }
   .devise-left {
-    @apply w-full bg-violet-600 md:flex md:justify-center md:items-center md:p-4 md:pb-20 hidden
+    @apply lg:w-[31rem] bg-violet-600 md:flex md:justify-center md:items-center md:p-4 md:pb-20 hidden
   }
   .devise-right {
-    @apply container mx-auto mt-8 w-2/3
+    @apply container mx-auto mt-8 w-3/4
   }
   .devise-file-input {
-    @apply my-2 file:bg-violet-100 file:text-sm file:font-semibold file:text-violet-700 file:p-2 file:border-0 hover:file:bg-violet-200 text-sm text-neutral-500 bg-neutral-100
+    @apply w-full my-4 file:bg-violet-100 file:text-sm file:font-semibold file:text-violet-700 file:p-2 file:border-0 hover:file:bg-violet-200 text-sm text-neutral-500 bg-neutral-100
+  }
+  /* form password hint */
+  .hint {
+    @apply text-xs font-semibold ml-[0.2rem] text-neutral-700
+  }
+  /* simple form login link */
+  .link-devise {
+    @apply text-base font-semibold my-2 text-neutral-700
   }
 }
