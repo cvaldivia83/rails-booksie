@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    authorize @book
   end
 
   private
