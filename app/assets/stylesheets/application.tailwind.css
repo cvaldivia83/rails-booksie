@@ -51,7 +51,7 @@
     @apply w-16 h-16 p-4 bg-neutral-100 rounded-full mx-auto ring-1 ring-neutral-200
   }
   .devise-image {
-    @apply w-3/4 mt-12
+    @apply w-[20.6rem] mt-12
   }
   .devise-title {
     @apply text-center font-medium tracking-wide p-2 text-2xl text-neutral-700

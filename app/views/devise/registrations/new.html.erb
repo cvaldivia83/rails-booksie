@@ -1,30 +1,60 @@
-<h2>Sign up</h2>
+<div class="devise-grid">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :username,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "username" }%>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+  <div class="devise-left">
+    <%= image_tag("https://res.cloudinary.com/dd7pbokmj/image/upload/v1671830928/woman-readingsvg_g5hufg.svg", class: 'devise-image') %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+  <div class="devise-right">
+    <div class="introduction">
 
-<%= render "devise/shared/links" %>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#c084fc" class="devise-icon">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+      </svg>
+
+      <h1 class="devise-title">Welcome!</h1>
+
+    </div>
+
+     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    label: false,
+                    placeholder: 'E-mail',
+                    autofocus: true,
+                    input_html: { autocomplete: "email", class: 'devise-form-input' }%>
+        <%= f.input :username,
+                    required: true,
+                    label: false,
+                    placeholder: 'Username',
+                    autofocus: true,
+                    input_html: { autocomplete: "email", class: 'devise-form-input' }%>
+        <%= f.input :photo, as: :file, label: false, input_html: {class: 'devise-file-input'} %>
+        <div class="md:grid md:grid-cols-2 md:gap-2">
+          <%= f.input :password,
+                      required: true,
+                      label: false,
+                      placeholder: 'Password',
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password", class: 'devise-form-input' } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      label: false,
+                      placeholder: 'Confirm password',
+                      input_html: { autocomplete: "new-password", class: 'devise-form-input' } %>
+        </div>
+
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up", class: 'btn-violet-solid w-full mt-2' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+
+  </div>
+
+</div>

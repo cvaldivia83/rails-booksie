@@ -13,7 +13,6 @@ module.exports = {
         50: '50%',
       },
       fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
         pacifico: ["Pacifico", "sans-serif"],
       }
     },
