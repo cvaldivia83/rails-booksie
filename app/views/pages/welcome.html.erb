@@ -1,0 +1,43 @@
+<div class="w-full h-56 p-8 bg-neutral-100 rounded-bl-[80px]">
+  <div class="w-full flex justify-around items-center">
+    <h1 class="font-bold text-3xl text-neutral-700">Hello, <span class="italic">@<%= current_user.username %></span></h1>
+    <div class="bg-violet-600 p-6 rounded-lg">
+      <h2 class="uppercase text-sm font-semibold md:text-left text-center text-white">currently reading</h2>
+
+    </div>
+  </div>
+</div>
+
+<div class="w-full px-8 my-8">
+  <h2 class="font-bold text-3xl text-neutral-700">Blog's most popular</h2>
+  <div class=" my-8 w-5/6 h-96 rounded-lg mx-auto bg-black p-16" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://res.cloudinary.com/dd7pbokmj/image/upload/v1672670573/booksreading_jveo3e.webp'); background-size: cover; background-position-y: -20px">
+    <h2 class="text-white font-bold text-3xl contrast-100">Best Books of 2022</h2>
+    <p class="text-base text-white mt-4 leading-relaxed tracking-wide">Announcing the winners of the 1th Annual Booksie Choice Awards, the only major book awards decided by readers. Congratulations to the best books of the year!</p>
+
+    <div class="mt-12">
+      <%= link_to "See the Winners", books_path, class: 'btn-white-sqr'  %>
+    </div>
+  </div>
+</div>
+
+<div class="w-full px-16 mt-12">
+  <h2 class="font-bold text-3xl text-neutral-700">Booksie's selection</h2>
+  <div class="flex">
+
+    <div class="genres-card">
+
+    </div>
+  </div>
+</div>
+
+<div class="w-full px-16 mt-12 flex justify-around items-start">
+  <%= image_tag 'https://res.cloudinary.com/dd7pbokmj/image/upload/v1672462192/books_pvqvm0.webp', class: 'rounded-lg w-2/5', loading: "lazy" %>
+  <div class="text ml-14">
+    <h2 class="font-bold text-3xl text-neutral-700">Into the Nature</h2>
+    <p class="text-base mt-4 leading-relaxed tracking-wide">Nature books fill us with wonder at the joys of our world and the harshness within its beauty. You’ll also find a sobering reminder that our environment is precious and precarious. Booksie's curated book selection that will take you into a journey into the wild.</p>
+
+    <div class="mt-16">
+      <%= link_to "Read Article", books_path, class: 'btn-violet-solid'  %>
+    </div>
+  </div>
+</div>

@@ -9,9 +9,13 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      grayscale: {
+        50: '50%',
       },
+      fontFamily: {
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        pacifico: ["Pacifico", "sans-serif"],
+      }
     },
   },
   plugins: [
