@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_user
+  include Pundit::Authorization
+
+  # Devise configuration
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -19,5 +22,15 @@ class ApplicationController < ActionController::Base
   def set_user
     # Need to set up the user to use the navbar with link to user profile
     @user = current_user
+  end
+
+  # Pundit configuration
+
+  # Pundit: allow-list approach
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+
+  def skip_pundit?
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 end
