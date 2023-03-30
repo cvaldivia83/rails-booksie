@@ -14,4 +14,14 @@
  *= require_self
  */
 
+ /* Import css libraries */
+
+  @import 'swiper/css';
+  @import 'swiper/css/navigation';
+  @import 'swiper/css/pagination';
+
+/* Import pages */
+
  @import './pages/index.css';
+
+ /* Import components */
