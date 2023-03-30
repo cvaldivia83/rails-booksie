@@ -10,7 +10,7 @@ This projects uses: **MVC pattern**, **Ruby On Rails**, **HTML**, **CSS,** **Tai
 
 ### Ruby version
 
-	ruby  "3.1.2"
+	ruby  3.1.2
 
 ### Rails version
 
