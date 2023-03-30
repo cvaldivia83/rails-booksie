@@ -1,7 +1,14 @@
-<h1>Super Booksies</h1>
-
-<% @booksies.each do |booksie| %>
-  <div class="booksie-card">
-    <%= booksie.username %>
+<div class="regular-container">
+  <div class="thick-container">
+    <h1 class="main-title">Meet the bookworm community </h1>
   </div>
-<% end %>
+
+  <h2 class="main-subtitle">No two <span class="pacifico text-2xl">readers</span> are alike and that’s what makes the community so special.</h2>
+
+
+  <% @booksies.each do |booksie| %>
+    <div class="booksie-card">
+      <%= booksie.username %>
+    </div>
+  <% end %>
+</div>
