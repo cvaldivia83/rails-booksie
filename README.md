@@ -8,6 +8,23 @@ In Le Wagon's Web Development Bootcamp we are asked to code a comparable AirBnb 
 
 This projects uses: **MVC pattern**, **Ruby On Rails**, **HTML**, **CSS,** **Tailwind**, **Javascript**, **Stimulus**, **PostgreSQL**.
 
+## Description
+
+This project enables the following features:
+
+1. Authentication
+2. Authorization
+3. Image Upload
+4. Geocoding
+5. Search
+6. Notification
+7. Send e-mails programmatically
+8. Admin dashboard
+9. Create and manage a blog feature
+10. Use AJAX
+11. Chatroom with websocket
+12. Consumes a RESTFUL API (Google Books)
+
 ### Ruby version
 
 	ruby  3.1.2
@@ -20,7 +37,7 @@ This projects uses: **MVC pattern**, **Ruby On Rails**, **HTML**, **CSS,** **Tai
 
     v14.15.0
 
-## Deploy
+### Deploy
 
 To use and test Booksie:
 
