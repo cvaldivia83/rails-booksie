@@ -110,6 +110,9 @@
     @apply lg:max-w-[37.5rem] md:max-w-[26rem] shrink-0 mx-4
   }
   .booksie-card_image {
-    @apply w-128 h-80
+    @apply w-128 h-96
+  }
+  .booksie-card_username {
+     @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-8 text-neutral-700
   }
 }

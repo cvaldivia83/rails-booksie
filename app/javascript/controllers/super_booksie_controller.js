@@ -6,5 +6,9 @@ import Swiper, { Navigation, Pagination } from "swiper";
 export default class extends Controller {
   connect() {
     // console.log('Super Booksie is working!');
+    const optional = {
+
+    }
+    const swiper = new Swiper(this.element, optional)
   }
 }
