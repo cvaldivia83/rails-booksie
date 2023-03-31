@@ -83,10 +83,10 @@
 
   /* General Font Styles */
   .main-title {
-    @apply text-center font-bold text-2xl lg:text-4xl md:text-3xl leading-10
+    @apply text-center font-bold text-2xl lg:text-4xl md:text-3xl leading-10 text-neutral-700
   }
   .main-subtitle {
-    @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-4
+    @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-4 text-neutral-700
   }
   .pacifico {
     @apply font-pacifico
@@ -107,6 +107,9 @@
   }
   /* super_booksie card */
   .booksie-card {
-    @apply lg:max-w-[37.5rem] md:max-w-[26rem]
+    @apply lg:max-w-[37.5rem] md:max-w-[26rem] shrink-0 mx-4
+  }
+  .booksie-card_image {
+    @apply w-128 h-80
   }
 }
