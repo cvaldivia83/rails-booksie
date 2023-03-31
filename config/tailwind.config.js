@@ -9,6 +9,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      width: {
+        '112': '28rem',
+        '120': '30rem',
+        '128': '32rem',
+        '136': '34rem',
+        '144': '36rem'
+      },
       grayscale: {
         50: "50%",
       },
