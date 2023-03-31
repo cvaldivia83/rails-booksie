@@ -8,7 +8,7 @@
     <% if user_signed_in? %>
 
       <div class="">
-        <%= cl_image_tag current_user.photo.key, crop: :fill, class: "navbar-avatar hidden md:block", data: {navbar_target: "avatar", action: 'click->navbar#dropdown'}, tabindex: "0"  %>
+        <%= cl_image_tag current_user.photo.key, crop: :fill, class: "navbar-avatar md:block", data: {navbar_target: "avatar", action: 'click->navbar#dropdown'}, tabindex: "0"  %>
 
       </div>
 
