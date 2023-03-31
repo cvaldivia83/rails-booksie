@@ -82,4 +82,39 @@
   .link-devise {
     @apply text-base font-semibold my-2 text-neutral-700
   }
+
+  /* General Font Styles */
+  .main-title {
+    @apply text-center font-bold text-2xl lg:text-4xl md:text-3xl leading-10 text-neutral-700
+  }
+  .main-subtitle {
+    @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-4 text-neutral-700
+  }
+  .pacifico {
+    @apply font-pacifico
+  }
+
+  /* Containers */
+  .thick-container {
+    @apply container px-8 lg:px-48 md:px-24 mx-auto
+  }
+  .medium-container {
+    @apply container px-28 mx-auto
+  }
+  .regular-container {
+    @apply container px-12 lg:px-24 pt-12 pb-6 mx-auto
+  }
+  .thin-container {
+    @apply container px-12 pt-12 pb-6 mx-auto
+  }
+  /* super_booksie card */
+  .booksie-card {
+    @apply lg:max-w-[37.5rem] md:max-w-[26rem] shrink-0 mx-4
+  }
+  .booksie-card_image {
+    @apply w-128 h-96
+  }
+  .booksie-card_username {
+     @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-8 text-neutral-700
+  }
 }
