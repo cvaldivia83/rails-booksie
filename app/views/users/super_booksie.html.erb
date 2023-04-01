@@ -5,25 +5,23 @@
 
   <h2 class="main-subtitle">No two <span class="pacifico text-2xl">readers</span> are alike and that’s what makes the community so special.</h2>
 
-  <div class="flex justify-evenly mt-12" data-controller="super-booksie">
+</div>
 
-    <% @booksies.each do |booksie| %>
-      <div class="booksie-card">
-        <div class="booksie-card_image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path booksie.photo.key, crop: :fill %>'); background-size: cover; background-position: center;">
-
+<div class="mb-12">
+  <div class="swiper mySwiper" data-controller="super-booksie">
+    <div class="swiper-pagination"></div>
+    <div class="swiper-wrapper">
+      <% @booksies.first(6).each do |booksie| %>
+        <div class="swiper-slide">
+          <div class="">
+            <div class="booksie-card_image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path booksie.photo.key, crop: :fill %>'); background-size: cover; background-position: center;"></div>
+            <h2 class="booksie-card_username">@<%= booksie.username %></h2>
+          </div>
         </div>
-
-        <div class="swiper-pagination">
-
-        </div>
-        <div class="booksie-card_description">
-          <h2 class="booksie-card_username">@<%= booksie.username %></h2>
-        </div>
-
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
 
   </div>
-
-
 </div>

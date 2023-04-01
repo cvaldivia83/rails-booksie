@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def super_booksie
-    @booksies = User.where(super_booksie: true)
+    @booksies = policy_scope(User)
     authorize @booksies
   end
 end
