@@ -14,9 +14,11 @@
       <% @booksies.first(6).each_with_index do |booksie, index| %>
         <div class="swiper-slide">
           <div class="px-2">
+            <%= link_to user_path(booksie) do  %>
             <div class="booksie-card_image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path booksie.photo.key, crop: :fill %>'); background-size: cover; background-position: center;"></div>
             <h2 class="booksie-card_username">@<%= booksie.username %></h2>
             <p class="px-2 text-center mt-4 leading-loose  text-neutral-700 font-light text-sm"><%= @testimonials[index] %></p>
+            <% end %>
           </div>
         </div>
       <% end %>
@@ -27,7 +29,7 @@
   </div>
 </div>
 
-<div class="regular-container mt-12">
+<div class="regular-container my-12">
   <div class="thick-container">
     <h1 class="main-title mb-24">We are by your side </h1>
   </div>
@@ -39,27 +41,27 @@
     </div>
     <div class="right">
       <div class="flex align-center">
-        <span class="icon-violet-700 mt-1 mr-6"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">Ability to require official ID prior to booking</p>
+        <span class="icon-violet-700 mt-1 mr-4"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">Ability to require official ID prior to booking</p>
       </div>
 
       <div class="flex align-center">
-        <span class="icon-violet-700 mt-1 mr-6"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">Booking Rules that users must accept</p>
+        <span class="icon-violet-700 mt-1 mr-4"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">Booking Rules that users must accept</p>
       </div>
 
        <div class="flex align-center">
-        <span class="icon-violet-700 mt-1 mr-6"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">Read comments from previous bookings</p>
+        <span class="icon-violet-700 mt-1 mr-4"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">Read comments from previous bookings</p>
       </div>
 
       <div class="flex align-center">
-        <span class="icon-violet-700 mt-1 mr-6"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">Free $1 million property damage protection</p>
+        <span class="icon-violet-700 mt-1 mr-4"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">Free $1 million property damage protection</p>
       </div>
 
       <div class="flex align-center">
-        <span class="icon-violet-700 mt-1 mr-6"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">$1 million free liability insurance</p>
+        <span class="icon-violet-700 mt-1 mr-4"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">$1 million free liability insurance</p>
       </div>
 
       <div class="flex align-center">
-        <span class="icon-violet-700 mt-1 mr-6"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">24/7 global customer service</p>
+        <span class="icon-violet-700 mt-1 mr-4"><i class="fa-solid fa-square-check"></i></span><p class="small-paragraph">24/7 global customer service</p>
       </div>
 
 
@@ -69,5 +71,18 @@
     </div>
   </div>
 
+
+</div>
+
+<div class="regular-container mt-12 flex items-center justify-between md:flex-row flex-col">
+    <img src="https://res.cloudinary.com/dd7pbokmj/image/upload/v1680557560/reading-woman-bed_saeaf2.jpg" alt="female-book-reader" class= "md:w-1/2 h-96 w-full rounded-lg md:ml-4 shrink-0">
+
+    <div class="p-12">
+      <span class="icon-violet-300 text-2xl"><i class="fa-solid fa-quote-left"></i></span>
+      <h2 class="big-paragraph my-4">There's no way to share books. You might be surprised by how much fun you have.</h2>
+      <span class="icon-violet-300 text-2xl"><i class="fa-solid fa-quote-right"></i></span>
+
+      <h3 class="small-paragraph">Chloe, Bruxelles, Belgium</h3>
+    </div>
 
 </div>

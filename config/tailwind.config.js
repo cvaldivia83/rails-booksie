@@ -16,6 +16,10 @@ module.exports = {
         '136': '34rem',
         '144': '36rem'
       },
+      height: {
+        '72': '18rem',
+        '84': '21rem'
+      },
       grayscale: {
         50: "50%",
       },

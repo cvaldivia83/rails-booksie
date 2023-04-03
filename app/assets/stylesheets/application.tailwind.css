@@ -89,7 +89,10 @@
     @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-4 text-neutral-700
   }
   .small-paragraph {
-    @apply font-light text-neutral-700 leading-7 tracking-wide text-sm
+    @apply font-light text-neutral-700 leading-7 tracking-wide text-sm text-justify
+  }
+  .big-paragraph {
+    @apply font-light text-neutral-700 leading-8 tracking-wide text-2xl text-justify
   }
   .pacifico {
     @apply font-pacifico
@@ -121,5 +124,9 @@
   /* icons */
   .icon-violet-700 {
     @apply text-violet-700
+  }
+
+  .icon-violet-300 {
+    @apply text-violet-300
   }
 }

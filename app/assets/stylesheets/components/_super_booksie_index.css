@@ -101,3 +101,10 @@ html, body {
     bottom: 24%;
   }
 }
+
+/* lg breakpoint */
+@media (min-width: 1024px) {
+  .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 20%;
+  }
+}
