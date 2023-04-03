@@ -88,6 +88,9 @@
   .main-subtitle {
     @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-4 text-neutral-700
   }
+  .small-paragraph {
+    @apply font-light text-neutral-700 leading-7 tracking-wide text-sm
+  }
   .pacifico {
     @apply font-pacifico
   }
@@ -114,5 +117,9 @@
   }
   .booksie-card_username {
      @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-8 text-neutral-700
+  }
+  /* icons */
+  .icon-violet-700 {
+    @apply text-violet-700
   }
 }
