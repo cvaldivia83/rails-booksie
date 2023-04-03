@@ -62,9 +62,6 @@ gem "dotenv-rails", groups: [:development, :test]
 
 gem "cloudinary"
 
-# Font Awesome Icons
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
-
 # Use Sass to process CSS
 # gem "sassc-rails"
 
