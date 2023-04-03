@@ -113,6 +113,6 @@
     @apply h-96
   }
   .booksie-card_username {
-     @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-12 text-neutral-700
+     @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-8 text-neutral-700
   }
 }
