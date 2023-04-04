@@ -10,6 +10,9 @@ module.exports = {
   theme: {
     extend: {
       width: {
+        '52': '13rem',
+        '56': '14rem',
+        '58': '14.5rem',
         '112': '28rem',
         '120': '30rem',
         '128': '32rem',
@@ -18,7 +21,8 @@ module.exports = {
       },
       height: {
         '72': '18rem',
-        '84': '21rem'
+        '84': '21rem',
+        '47': '11.75rem'
       },
       grayscale: {
         50: "50%",
