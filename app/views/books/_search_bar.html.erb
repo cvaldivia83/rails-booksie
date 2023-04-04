@@ -1,0 +1,10 @@
+<div class="thin-container">
+  <%= form_with url: books_path, method: :get, class: "flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "devise-form-input",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn-violet-solid" %>
+    <% end %>
+</div>
