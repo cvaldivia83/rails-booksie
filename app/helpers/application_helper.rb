@@ -9,6 +9,12 @@ module ApplicationHelper
     end
   end
 
+  def render_footer
+    unless current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path)
+      render 'shared/footer'
+    end
+  end
+
 # make devise resource available for partials
 
   def resource_name

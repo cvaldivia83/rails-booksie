@@ -19,6 +19,11 @@
     @apply p-2 text-white text-sm font-semibold hover:bg-violet-900 hover:rounded active:bg-violet-900 active:rounded
   }
 
+  /* Footer */
+  .footer {
+    @apply bg-neutral-100 border-t-neutral-300 border-2 py-8
+  }
+
   /* Buttons */
 
   .btn-violet-solid {
