@@ -115,7 +115,7 @@
     @apply container px-28 mx-auto
   }
   .regular-container {
-    @apply container px-12 lg:px-24 pt-12 pb-6 mx-auto
+    @apply container w-full px-12 lg:px-24 pt-12 pb-6 mx-auto
   }
   .thin-container {
     @apply container px-12 pt-12 pb-6 mx-auto
@@ -140,7 +140,7 @@
   }
   /* book card index */
   .book-card {
-    @apply w-58
+    @apply w-58 mx-auto
   }
   .book-card_image {
     @apply w-58 h-72 rounded-lg
