@@ -21,13 +21,12 @@ portrait_women = [
   'https://cdn.pixabay.com/photo/2017/01/27/16/09/people-2013447_1280.jpg',
   'https://cdn.pixabay.com/photo/2015/11/03/10/23/watercolor-1020509_1280.jpg',
   'https://cdn.pixabay.com/photo/2021/04/07/17/01/woman-6159648_1280.jpg',
-  'https://cdn.pixabay.com/photo/2019/05/04/15/24/woman-4178302_1280.jpg'
+  'https://cdn.pixabay.com/photo/2019/05/04/15/24/woman-4178302_1280.jpg', 'https://img.freepik.com/free-photo/shallow-focus-shot-african-american-female-with-tattoos-wearing-purple-shirt-sunglasses_181624-41271.jpg?w=1380&t=st=1680627915~exp=1680628515~hmac=265a714a169c0c5a010416cb5e1a7765c79290c7c3c1d8a33bcc2253d6ada71b'
 ]
 
 portrait_men = [
-  'https://cdn.pixabay.com/photo/2020/01/07/23/01/sketch-4748895_1280.jpg',
-  'https://banner2.cleanpng.com/20180623/iqh/kisspng-computer-icons-avatar-social-media-blog-font-aweso-avatar-icon-5b2e99c40ce333.6524068515297806760528.jpg',
-  'https://cdn.pixabay.com/photo/2020/12/14/15/59/man-5831295_1280.jpg'
+  'https://img.freepik.com/free-vector/mysterious-gangster-mafia-character-smoking_23-2148474614.jpg?w=826&t=st=1680627610~exp=1680628210~hmac=85ef56af802c2fc8939728a6813e0aeea7c3efd78cdeae169f1812b266506760',
+  'https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=826&t=st=1680627628~exp=1680628228~hmac=b3d61a90434027d819229efc5f22467a30dac70a1ba939a2c2cabd9f7ee379e7', 'https://img.freepik.com/free-psd/3d-illustration-business-man-with-glasses_23-2149436194.jpg?w=826&t=st=1680627693~exp=1680628293~hmac=90e16d055b5f2ee28553a29e034832bacccbcce8f6b63ab303ba687b2f803b05', 'https://img.freepik.com/free-vector/mysterious-gangster-character_23-2148483453.jpg?w=826&t=st=1680627737~exp=1680628337~hmac=20d165d960a99cfb4fc0a21a8f45c45d45668212e2dc03e24607343aa269a9aa', 'https://img.freepik.com/free-vector/mysterious-gangster-character_23-2148466806.jpg?w=826&t=st=1680627776~exp=1680628376~hmac=97c984caa04e26bc85263e44657c73bb398f50d751b275c2dd132b2b1062d223'
 ]
 
 booksie = [true, false].sample
@@ -81,7 +80,7 @@ book_ids.each_with_index do |book, index|
     author: book['volumeInfo']['authors'][0],
     publisher: book['volumeInfo']['publisher'],
     user: users[2..10].sample,
-    rating: book['volumeInfo']['averageRating']
+    rating: book['volumeInfo']['averageRating'].to_i
   )
 
   file = URI.open(book['volumeInfo']['imageLinks']['thumbnail'])
