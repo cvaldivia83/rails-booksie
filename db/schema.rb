@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_155621) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "rating"
+    t.decimal "rating", precision: 2, scale: 1
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
