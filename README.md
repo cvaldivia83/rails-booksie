@@ -16,14 +16,13 @@ This project enables the following features:
 2. Authorization
 3. Image Upload
 4. Geocoding
-5. Search
-6. Notification
-7. Send e-mails programmatically
-8. Admin dashboard
-9. Create and manage a blog feature
-10. Use AJAX
-11. Chatroom with websocket
-12. Consumes a RESTFUL API (Google Books)
+5. Send e-mails programmatically using background jobs
+6. Admin dashboard
+7. Create and manage a blog feature
+8. Use AJAX to perform search on keystroke
+9. Chatroom with websocket
+10. Notification
+11. Consumes a RESTFUL API (Google Books)
 
 ### Ruby version
 
