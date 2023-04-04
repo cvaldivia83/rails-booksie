@@ -79,7 +79,9 @@ book_ids.each_with_index do |book, index|
     year: book['volumeInfo']['publishedDate'].slice(0..3),
     isbn: book['volumeInfo']['industryIdentifiers'][1]['identifier'],
     author: book['volumeInfo']['authors'][0],
-    publisher: book['volumeInfo']['publisher'], user: users[2..10].sample
+    publisher: book['volumeInfo']['publisher'],
+    user: users[2..10].sample,
+    rating: book['volumeInfo']['averageRating']
   )
 
   file = URI.open(book['volumeInfo']['imageLinks']['thumbnail'])
