@@ -86,3 +86,14 @@
     </div>
 
 </div>
+
+<div data-controller="read-more" class="bg-neutral-700 p-8 my-8">
+  <h2 class="main-title-100 my-8">Become a Booksie</h2>
+
+    <span class="icon-violet-700 text-center text-3xl block" data-read-more-target="arrowDown" data-action="click->read-more#openForm"><i class="fa-solid fa-angles-down"></i></span>
+
+    <div class="hidden" data-read-more-target="form">
+      <%= render 'devise/registrations/new_user' %>
+    </div>
+
+</div>

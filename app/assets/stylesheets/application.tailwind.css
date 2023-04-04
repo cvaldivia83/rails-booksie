@@ -37,7 +37,7 @@
   /* Devise Forms */
 
   .devise-form-input {
-    @apply bg-neutral-100 border-none focus:ring-2 focus:ring-neutral-300 mt-4 text-sm text-neutral-500 w-full
+    @apply bg-neutral-100 border-none focus:ring-2 focus:ring-neutral-300 mt-4 text-sm text-neutral-500 w-full rounded
   }
   .devise-remember-me-input {
     @apply ring-2 rounded-sm ring-violet-400 border-0 focus:ring-violet-500 focus:ring-2  focus:text-violet-400 mr-2
@@ -70,7 +70,7 @@
     @apply container mx-auto mt-8 w-3/4
   }
   .devise-file-input {
-    @apply w-full my-4 file:bg-violet-100 file:text-sm file:font-semibold file:text-violet-700 file:p-2 file:border-0 hover:file:bg-violet-200 text-sm text-neutral-500 bg-neutral-100
+    @apply w-full mt-4 file:bg-violet-100 file:text-sm file:font-semibold file:text-violet-700 file:p-2 file:border-0 hover:file:bg-violet-200 text-sm text-neutral-500 bg-neutral-100 rounded
   }
   /* form password hint */
   .hint {
@@ -84,6 +84,10 @@
   /* General Font Styles */
   .main-title {
     @apply text-center font-bold text-2xl lg:text-4xl md:text-3xl leading-10 text-neutral-700
+  }
+
+  .main-title-100 {
+    @apply text-center font-bold text-2xl lg:text-4xl md:text-3xl leading-10 text-neutral-100
   }
   .main-subtitle {
     @apply text-center font-light text-base lg:text-2xl md:text-2xl leading-10 mt-4 text-neutral-700
