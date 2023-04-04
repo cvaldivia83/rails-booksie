@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   end
 
   def super_booksie
-    @booksies = User.where(super_booksie: true)
+    @booksies = policy_scope(User)
     authorize @booksies
+    @testimonials = ["Entrepreneur creating spaces at the intersection of identity and history.", "A pillar of the community sharing not only books, but also her hometown and culture.", "Homesteader bringing life back to a community that otherwise would have been forgotten.", "Rendez-vous at the next storyline and debate about society, consumption and art.", "A constant member in our community in love with adventures and fantasy stories.", "There\’s no one way to share. You might be surprised by how much fun you have."]
   end
+
 end
