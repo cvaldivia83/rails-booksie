@@ -139,6 +139,9 @@
     @apply text-violet-300
   }
   /* book card index */
+  .book-card {
+    @apply w-58
+  }
   .book-card_image {
     @apply w-58 h-72 rounded-lg
   }
@@ -148,5 +151,11 @@
   }
   .book-card_subtitle {
     @apply text-neutral-500 font-normal text-xs
+  }
+  .book-card_text {
+    @apply px-2 py-4 flex justify-between items-start
+  }
+  .book-card_rating {
+    @apply text-xs text-neutral-500
   }
 }
