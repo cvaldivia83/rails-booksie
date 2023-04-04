@@ -147,7 +147,7 @@
   }
 
   .book-card_title {
-    @apply text-neutral-700 font-semibold text-xs
+    @apply text-neutral-700 font-semibold text-xs truncate
   }
   .book-card_subtitle {
     @apply text-neutral-500 font-normal text-xs
