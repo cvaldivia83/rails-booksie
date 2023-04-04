@@ -14,4 +14,8 @@
  *= require_self
  */
 
+/* Import pages */
+
  @import './pages/index.css';
+
+ /* Import components */
