@@ -62,6 +62,9 @@ gem "dotenv-rails", groups: [:development, :test]
 
 gem "cloudinary"
 
+# Pg Search
+gem "pg_search"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
