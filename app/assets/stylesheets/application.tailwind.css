@@ -159,6 +159,8 @@
     @apply text-xs text-neutral-500
   }
   .search-input {
-      @apply bg-neutral-100 border-none ring-2 mr-2 ring-violet-300 text-sm text-neutral-500 w-full rounded
+      @apply bg-neutral-100 border-none ring-2 mr-2
+      focus:ring-4
+      focus:ring-violet-700 ring-violet-300 text-sm text-neutral-500 w-full rounded
   }
 }

@@ -3,7 +3,11 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show]
 
   def index
-    @books = policy_scope(Book)
+    if params[:query].present?
+      @books = policy_scope(Book).search_in_books(params[:query])
+    else
+      @books = policy_scope(Book)
+    end
   end
 
   def show
