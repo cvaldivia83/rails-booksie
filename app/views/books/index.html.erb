@@ -1,20 +1,8 @@
-<div class="regular-container">
-  <%= render 'books/search_bar' %>
-</div>
+<div data-controller="search-books">
+  <div class="regular-container">
+    <%= render 'books/search_bar' %>
+  </div>
 
-<div class="thin-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-  <% @books.each do |book| %>
-    <div class="book-card">
-      <%= link_to book_path(book) do %>
-        <div style="background-image: url('<%= cl_image_path book.photo.key, crop: :fill %>'); background-size: cover" class="book-card_image"></div>
-        <div class="book-card_text">
-          <div class="w-40">
-            <h2 class="book-card_title"><%= book.title %></h2>
-            <h3 class="book-card_subtitle"><%= book.author %></h3>
-          </div>
-          <h3 class="book-card_rating"><span class="mx-1"><i class="fa-solid fa-star"></i></span><%= book.rating %></h3>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render 'books/list', books: @books %>
+
 </div>

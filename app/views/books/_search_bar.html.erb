@@ -1,10 +1,13 @@
 <div class="thin-container">
-  <%= form_with url: books_path, method: :get, class: "flex" do %>
+  <%= form_with url: books_path, method: :get, html: { class: "flex", data: {search_books_target: "form"} } do %>
       <%= text_field_tag :query,
             params[:query],
             class: "search-input",
-            placeholder: "Type a keyword"
+            placeholder: "Looking for a book?",
+            value: params[:query],
+            data: {search_books_target: "input",
+            action: "keyup->search-books#update"}
         %>
-      <%= submit_tag "Search", name: "", class: "btn-violet-solid" %>
+
     <% end %>
 </div>

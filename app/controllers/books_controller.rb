@@ -3,11 +3,15 @@ class BooksController < ApplicationController
   before_action :set_book, only: %i[show]
 
   def index
+    @books = policy_scope(Book)
     if params[:query].present?
       @books = policy_scope(Book).search_in_books(params[:query])
-    else
-      @books = policy_scope(Book)
     end
+
+      respond_to do |format|
+        format.html
+        format.text { render partial: 'books/list', locals: { books: @books }, formats: [:html] }
+      end
   end
 
   def show
