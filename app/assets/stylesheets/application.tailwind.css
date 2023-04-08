@@ -100,6 +100,12 @@
   .small-paragraph {
     @apply font-light text-neutral-700 leading-7 tracking-wide text-sm text-justify
   }
+  .md-paragraph {
+    @apply text-neutral-700 leading-9 tracking-wide text-base text-justify
+  }
+  .xs-paragraph {
+    @apply font-bold text-neutral-700 leading-7 text-xs
+  }
   .big-paragraph {
     @apply font-light text-neutral-700 leading-8 tracking-wide text-2xl text-justify
   }
@@ -162,5 +168,10 @@
       @apply bg-neutral-100 border-none ring-2 mr-2
       focus:ring-4
       focus:ring-violet-700 ring-violet-300 text-sm text-neutral-500 w-full rounded
+  }
+
+  /* Post comments */
+  .comment-card {
+    @apply border-s-4 border-violet-300 my-6 px-4 flex items-center
   }
 }

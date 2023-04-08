@@ -1,15 +1,28 @@
+<div class="regular-container">
+  <h1 class="main-title"><%= @post.title %></h1>
+  <div class="flex justify-center mt-2">
+    <h2 class="book-card_title mr-4 text-violet-700">Booksie: <%= @post.author %></h2>
 
-<h1><%= @post.title %></h1>
-<h2><%= @post.author %></h2>
+    <p class="book-card_subtitle">Posted: <%= @post.date %></p>
 
-<p><%= @post.date %></p>
-
-<p><%= @post.content %></p>
-
-<% @post.comments.each do |comment| %>
-  <div class="comment-card">
-    <%= comment.date %>
-    <%= comment.content %>
-    <%= comment.user.username %>
   </div>
-<% end %>
+
+
+  <p class="mt-16 md-paragraph"><%= @post.content %></p>
+
+  <div class="comments mt-16">
+
+    <h2 class="book-card_title text-center">Share your thoughts: leave a review!</h2>
+
+    <% @post.comments.each do |comment| %>
+      <div class="comment-card">
+        <div class="comment-card_user">
+          <%= cl_image_tag comment.user.photo.key, height: 300, width: 400, crop: :fill, class: "navbar-avatar" %>
+          <p class="xs-paragraph"><%= comment.date.strftime("%m/%d/%Y")  %></p>
+        </div>
+        <p class="px-8 small-paragraph"><%= comment.content %></p>
+      </div>
+    <% end %>
+  </div>
+
+</div>

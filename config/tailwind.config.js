@@ -30,9 +30,6 @@ module.exports = {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
         pacifico: ["Pacifico", "sans-serif"],
-      },
-      ringColor: {
-        'violet': '#d4d4d4'
       }
     },
   },
