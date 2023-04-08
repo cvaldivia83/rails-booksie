@@ -20,6 +20,22 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+    authorize @comment
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    authorize @comment
+    @comment.update(comment_params)
+
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.text { render partial: 'comments/comment', locals: { comment: @comment }, formats: [:html] }
+    end
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
     authorize @comment

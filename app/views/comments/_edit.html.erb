@@ -1,0 +1,7 @@
+<%= simple_form_for(comment, html: {class: comment.errors.any? ? "" : "hidden transition ease-in-out delay-150" , data: {edit_comment_target: "form",  action: "submit->edit-comment#update"}}) do |f| %>
+  <%= f.input :content, label: false, input_html: { class: 'search-input' } %>
+  <div class="flex justify-between items-end px-4">
+    <%= f.submit "Update Review", class: 'btn-violet-outlined' %>
+    <span data-action="click->edit-comment#hideForm" class="icon-violet-700"><i class="fa-solid fa-arrows-up-to-line"></i></span>
+  </div>
+<% end %>
