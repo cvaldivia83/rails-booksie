@@ -21,7 +21,12 @@
 
       <h2 class="main-subtitle"><%= @book.author %></h2>
 
-      <p class="big-paragraph"><%= @book.rating %></p>
+      <div>
+        <%= simple_form_for([@book, @rating]) do |f| %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Add a rating" %>
+          <%= f.submit "Send your rating" %>
+        <% end %>
+      </div>
       <p class="small-paragraph"><%= @book.description %></p>
     </div>
   </div>
