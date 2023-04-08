@@ -104,7 +104,7 @@
     @apply text-neutral-700 leading-9 tracking-wide text-base text-justify
   }
   .xs-paragraph {
-    @apply font-bold text-neutral-700 leading-7 text-xs
+    @apply font-bold text-neutral-700 leading-7 text-[0.6rem]
   }
   .big-paragraph {
     @apply font-light text-neutral-700 leading-8 tracking-wide text-2xl text-justify
@@ -140,7 +140,9 @@
   .icon-violet-700 {
     @apply text-violet-700
   }
-
+  .icon-neutral-300 {
+    @apply text-neutral-300
+  }
   .icon-violet-300 {
     @apply text-violet-300
   }
@@ -172,6 +174,10 @@
 
   /* Post comments */
   .comment-card {
-    @apply border-s-4 border-violet-300 my-6 px-4 flex items-center
+    @apply border-s-4 border-neutral-300 my-8 px-4 flex items-center justify-between
+  }
+
+  .comment-avatar {
+    @apply w-8 h-8 rounded-full
   }
 }
