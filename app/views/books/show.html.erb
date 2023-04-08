@@ -1,3 +1,22 @@
-<%= @book.title %>
+<div class="thin-container">
+  <div class="flex flex-wrap">
+    <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill %>
+    <div class="infos">
+      <h1 class="main-title"><%= @book.title %></h1>
 
-<%= @book.author %>
+      <div class="thick-container flex justify-evenly items-center my-4">
+        <span class="text-xs font-bold"><%= @book.publisher %></span>
+        <span class="text-[0.3rem] text-violet-300"><i class="fa-solid fa-circle "></i></span>
+        <span class="text-xs font-bold"><%= @book.year %>  </span>
+        <span class="text-[0.3rem] text-violet-300"><i class="fa-solid fa-circle "></i></span>
+        <span class="text-xs font-bold"><%= @book.isbn %> </span>
+      </div>
+      <h2 class="main-subtitle"><%= @book.author %></h2>
+
+      <p><%= @book.rating %></p>
+      <p><%= @book.description %></p>
+    </div>
+  </div>
+
+  <%# description rating user.username user.avatar booking_button wishlist_button %>
+</div>
