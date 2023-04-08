@@ -1,0 +1,21 @@
+      <div class="comment-card">
+        <div class="content flex">
+          <div class="comment-card_user flex flex-col justify-center items-center">
+            <%= cl_image_tag comment.user.photo.key, height: 300, width: 400, crop: :fill, class: "comment-avatar" %>
+            <p class="xs-paragraph"><%= comment.date.strftime("%d/%m/%Y")  %></p>
+          </div>
+          <p class="px-8 small-paragraph"><%= comment.content %></p>
+        </div>
+
+        <% if current_user == comment.user %>
+          <div class="icons flex flex-col items-center">
+            <%= link_to comment_path(comment),
+            data: {turbo_method: :delete,
+            turbo_confirm: 'Are you sure?'} do %>
+              <span class="icon-violet-700"><i class="fa-solid fa-dumpster-fire"></i></span>
+            <% end %>
+
+            <span class="icon-violet-300"><i class="fa-solid fa-pencil"></i></span>
+          </div>
+        <% end %>
+      </div>

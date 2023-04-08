@@ -14,36 +14,16 @@
 
     <h2 class="book-card_title text-center my-8">Share your thoughts: leave a review!</h2>
 
-    <%= simple_form_for([@post, @comment]) do |f| %>
-      <%= f.input :content,
-      input_html: { class: 'search-input p-4' }, label: false  %>
-      <%= f.submit "Submit review", class: "btn-violet-outlined w-full"
-      %>
-    <% end %>
+    <div data-controller="insert-comment">
+      <%= render 'comments/form', post: @post, comment: @comment %>
 
-    <% @post.comments.each do |comment| %>
-      <div class="comment-card">
-        <div class="content flex">
-          <div class="comment-card_user flex flex-col justify-center items-center">
-            <%= cl_image_tag comment.user.photo.key, height: 300, width: 400, crop: :fill, class: "comment-avatar" %>
-            <p class="xs-paragraph"><%= comment.date.strftime("%d/%m/%Y")  %></p>
-          </div>
-          <p class="px-8 small-paragraph"><%= comment.content %></p>
-        </div>
-
-        <% if current_user == comment.user %>
-          <div class="icons flex flex-col items-center">
-            <%= link_to comment_path(comment),
-            data: {turbo_method: :delete,
-            turbo_confirm: 'Are you sure?'} do %>
-              <span class="icon-violet-700"><i class="fa-solid fa-dumpster-fire"></i></span>
-            <% end %>
-
-            <span class="icon-violet-300"><i class="fa-solid fa-pencil"></i></span>
-          </div>
+      <div data-insert-comment-target="items">
+        <% @post.comments.each do |comment| %>
+          <%= render 'comments/comment', comment: comment %>
         <% end %>
       </div>
-    <% end %>
+    </div>
+
   </div>
 
 </div>

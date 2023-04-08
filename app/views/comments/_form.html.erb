@@ -1,0 +1,6 @@
+<%= simple_form_for([post, comment], data: {insert_comment_target: "form", action: "submit->insert-comment#send"}) do |f| %>
+  <%= f.input :content,
+      input_html: { class: 'search-input p-4' }, label: false  %>
+  <%= f.submit "Submit review", class: "btn-violet-outlined w-full"
+      %>
+<% end %>
