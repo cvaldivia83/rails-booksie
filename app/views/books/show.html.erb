@@ -5,16 +5,24 @@
       <h1 class="main-title"><%= @book.title %></h1>
 
       <div class="thick-container flex justify-evenly items-center my-4">
-        <span class="text-xs font-bold"><%= @book.publisher %></span>
+        <div class="text">
+          <span class="text-xs font-bold text-violet-700">Publisher:</span>
+          <span class="text-xs font-bold"><%= @book.publisher %></span>
+        </div>
+
         <span class="text-[0.3rem] text-violet-300"><i class="fa-solid fa-circle "></i></span>
         <span class="text-xs font-bold"><%= @book.year %>  </span>
         <span class="text-[0.3rem] text-violet-300"><i class="fa-solid fa-circle "></i></span>
-        <span class="text-xs font-bold"><%= @book.isbn %> </span>
+        <div class="text">
+          <span class="text-xs font-bold text-violet-700">ISBN:</span>
+          <span class="text-xs font-bold"><%= @book.isbn %> </span>
+        </div>
       </div>
+
       <h2 class="main-subtitle"><%= @book.author %></h2>
 
-      <p><%= @book.rating %></p>
-      <p><%= @book.description %></p>
+      <p class="big-paragraph"><%= @book.rating %></p>
+      <p class="small-paragraph"><%= @book.description %></p>
     </div>
   </div>
 
