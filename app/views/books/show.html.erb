@@ -23,7 +23,7 @@
 
       <div>
         <%= simple_form_for([@book, @rating]) do |f| %>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Add a rating" %>
+          <%= f.input :rating, collection: (1..5).to_a, label: false, input_html: { data: { controller: "star-rating" } } %>
           <%= f.submit "Send your rating" %>
         <% end %>
       </div>
