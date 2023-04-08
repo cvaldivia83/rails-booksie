@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   get '/welcome', to: 'pages#welcome'
 
-  resources :books, only: %i[index show]
+  resources :books, only: %i[index show] do
+    resources :ratings, only: %i[new create]
+  end
 
   resources :posts, only: %i[index show] do
     resources :comments, only: %i[new create]
