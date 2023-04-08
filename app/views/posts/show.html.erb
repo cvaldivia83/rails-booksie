@@ -14,7 +14,7 @@
 
     <h2 class="book-card_title text-center my-8">Share your thoughts: leave a review!</h2>
 
-    <div data-controller="insert-comment">
+    <div data-controller="insert-comment" data-insert-comment-position-value="beforeend">
       <%= render 'comments/form', post: @post, comment: @comment %>
 
       <div data-insert-comment-target="items">

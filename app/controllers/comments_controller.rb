@@ -8,10 +8,15 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.post = @post
     authorize @comment
-    if @comment.save!
-      redirect_to post_path(@post)
-    else
-      render 'posts/show', status: :unprocessable_entity
+
+    respond_to do |format|
+      if @comment.save!
+        format.html { redirect_to post_path(@post) }
+        format.json
+      else
+        format.html { render 'posts/show', status: :unprocessable_entity }
+        format.json
+      end
     end
   end
 
