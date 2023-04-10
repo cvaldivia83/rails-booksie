@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :ratings, only: %i[new create]
   end
 
+  resources :wishlists, only: %i[index new create]
+
   resources :posts, only: %i[index show] do
     resources :comments, only: %i[new create]
   end
