@@ -3,7 +3,12 @@ import StarRating from "star-rating.js";
 
 // Connects to data-controller="star-rating"
 export default class extends Controller {
+  static targets = ["input"]
   connect() {
-    new StarRating(this.element);
+    new StarRating(this.inputTarget);
+  }
+
+  submit() {
+    this.element.submit();
   }
 }

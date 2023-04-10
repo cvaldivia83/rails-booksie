@@ -1,6 +1,6 @@
 <div class="thin-container">
   <div class="flex flex-wrap">
-    <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill %>
+    <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill, class: 'book-card_image' %>
     <div class="infos">
       <h1 class="main-title"><%= @book.title %></h1>
 
@@ -21,12 +21,17 @@
 
       <h2 class="main-subtitle"><%= @book.author %></h2>
 
-      <div>
-        <%= simple_form_for([@book, @rating]) do |f| %>
-          <%= f.input :rating, collection: (1..5).to_a, label: false, input_html: { data: { controller: "star-rating" } } %>
-          <%= f.submit "Send your rating" %>
+      <% if Rating.where(user: current_user, book: @book).exists? %>
+        <p><%= Rating.where(user: current_user, book: @book).average("rating").round(2) %></p>
+      <% else %>
+        <%= simple_form_for([@book, @rating], data: { controller: "star-rating" }) do |f| %>
+          <div  data-action="click->star-rating#submit">
+            <%= f.input :rating, collection: (1..5).to_a, label: false, input_html: { data: { star_rating_target: "input" }} %>
+          </div>
+          <%= f.submit "Send your rating", class: "hidden" %>
         <% end %>
-      </div>
+      <% end %>
+
       <p class="small-paragraph"><%= @book.description %></p>
     </div>
   </div>

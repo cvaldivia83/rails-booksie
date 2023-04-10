@@ -3,6 +3,7 @@ class RatingsController < ApplicationController
   def create
     @rating = Rating.new(rating_params)
     @rating.book = @book
+    @rating.user = current_user
     authorize @rating
     @rating.save
   end
