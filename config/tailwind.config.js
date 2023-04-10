@@ -22,7 +22,9 @@ module.exports = {
       height: {
         '72': '18rem',
         '84': '21rem',
-        '47': '11.75rem'
+        '47': '11.75rem',
+        '50': '12.5rem',
+        '54': '13.5rem'
       },
       grayscale: {
         50: "50%",

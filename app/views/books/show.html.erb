@@ -1,28 +1,28 @@
-<div class="thin-container">
-  <div class="flex flex-wrap">
-    <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill, class: 'book-card_image' %>
+<div class="regular-container">
+  <div class="flex justify-start">
+    <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill, class: 'book-card_image mr-8' %>
     <div class="infos">
-      <h1 class="main-title"><%= @book.title %></h1>
+      <h1 class="text-4xl font-bold text-neutral-700"><%= @book.title %></h1>
 
-      <div class="thick-container flex justify-evenly items-center my-4">
+      <div class="flex flex-col md:flex-row lg:flex-row justify-evenly items-center my-4">
         <div class="text">
           <span class="text-xs font-bold text-violet-700">Publisher:</span>
           <span class="text-xs font-bold"><%= @book.publisher %></span>
         </div>
 
-        <span class="text-[0.3rem] text-violet-300"><i class="fa-solid fa-circle "></i></span>
+        <span class="text-[0.3rem] text-violet-300 px-4"><i class="fa-solid fa-circle "></i></span>
         <span class="text-xs font-bold"><%= @book.year %>  </span>
-        <span class="text-[0.3rem] text-violet-300"><i class="fa-solid fa-circle "></i></span>
+        <span class="text-[0.3rem] text-violet-300 px-4"><i class="fa-solid fa-circle "></i></span>
         <div class="text">
           <span class="text-xs font-bold text-violet-700">ISBN:</span>
           <span class="text-xs font-bold"><%= @book.isbn %> </span>
         </div>
       </div>
 
-      <h2 class="main-subtitle"><%= @book.author %></h2>
+      <h2 class="font-light text-base lg:text-2xl md:text-2xl leading-4 mt-2 text-neutral-700"><%= @book.author %></h2>
 
       <% if Rating.where(user: current_user, book: @book).exists? %>
-        <p><%= Rating.where(user: current_user, book: @book).average("rating").round(2) %></p>
+        <span class="small-paragraph"><i class="fa-solid fa-star"></i> <%= Rating.where(user: current_user, book: @book).average("rating").round(2) %></span>
       <% else %>
         <%= simple_form_for([@book, @rating], data: { controller: "star-rating" }) do |f| %>
           <div  data-action="click->star-rating#submit">
@@ -31,10 +31,8 @@
           <%= f.submit "Send your rating", class: "hidden" %>
         <% end %>
       <% end %>
-
-      <p class="small-paragraph"><%= @book.description %></p>
     </div>
   </div>
 
-  <%# description rating user.username user.avatar booking_button wishlist_button %>
+   <p class="small-paragraph my-16"><%= @book.description %></p>
 </div>
