@@ -16,6 +16,7 @@ class BooksController < ApplicationController
 
   def show
     authorize @book
+    @rating = Rating.new
   end
 
   private

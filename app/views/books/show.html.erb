@@ -1,3 +1,40 @@
-<%= @book.title %>
+<div class="thin-container">
+  <div class="flex flex-wrap">
+    <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill, class: 'book-card_image' %>
+    <div class="infos">
+      <h1 class="main-title"><%= @book.title %></h1>
 
-<%= @book.author %>
+      <div class="thick-container flex justify-evenly items-center my-4">
+        <div class="text">
+          <span class="text-xs font-bold text-violet-700">Publisher:</span>
+          <span class="text-xs font-bold"><%= @book.publisher %></span>
+        </div>
+
+        <span class="text-[0.3rem] text-violet-300"><i class="fa-solid fa-circle "></i></span>
+        <span class="text-xs font-bold"><%= @book.year %>  </span>
+        <span class="text-[0.3rem] text-violet-300"><i class="fa-solid fa-circle "></i></span>
+        <div class="text">
+          <span class="text-xs font-bold text-violet-700">ISBN:</span>
+          <span class="text-xs font-bold"><%= @book.isbn %> </span>
+        </div>
+      </div>
+
+      <h2 class="main-subtitle"><%= @book.author %></h2>
+
+      <% if Rating.where(user: current_user, book: @book).exists? %>
+        <p><%= Rating.where(user: current_user, book: @book).average("rating").round(2) %></p>
+      <% else %>
+        <%= simple_form_for([@book, @rating], data: { controller: "star-rating" }) do |f| %>
+          <div  data-action="click->star-rating#submit">
+            <%= f.input :rating, collection: (1..5).to_a, label: false, input_html: { data: { star_rating_target: "input" }} %>
+          </div>
+          <%= f.submit "Send your rating", class: "hidden" %>
+        <% end %>
+      <% end %>
+
+      <p class="small-paragraph"><%= @book.description %></p>
+    </div>
+  </div>
+
+  <%# description rating user.username user.avatar booking_button wishlist_button %>
+</div>
