@@ -203,27 +203,27 @@
 
   /* notifications - alert */
 
-  .alert-box {
-    @apply flex justify-around items-center py-4 px-6 w-fit backdrop-blur-xl rounded-lg relative z-50 bottom-[109vh] left-[72%] transition ease-in-out duration-500;
+  .notification-box {
+    @apply flex justify-around items-center py-4 px-6 w-fit backdrop-blur-xl rounded-lg relative z-50 bottom-[109vh] left-[69%] transition ease-in-out duration-500;
   }
 
-  .alert-text {
+  .notification-text {
     @apply mr-6 font-bold text-neutral-800;
   }
 
-  .bg-alert {
+  .bg-notice {
     @apply bg-green-200/50;
   }
 
-  .bg-notice {
+  .bg-alert {
     @apply bg-red-200/50;
   }
 
-  .icon-alert {
+  .icon-notice {
     @apply text-green-700;
   }
 
-  .icon-notice {
+  .icon-alert {
     @apply text-red-700;
   }
 }
