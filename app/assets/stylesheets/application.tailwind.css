@@ -77,16 +77,16 @@
     @apply h-[20.6rem] w-3/4 mt-12
   }
   .devise-title {
-    @apply text-center font-medium tracking-wide p-2 text-2xl text-neutral-700
+    @apply text-center font-medium tracking-wide p-2 text-2xl text-neutral-700;
   }
   .devise-paragraph {
-    @apply mx-auto text-center font-light text-xs text-neutral-500 mt-2 mb-4
+    @apply mx-auto text-center font-light text-xs text-neutral-500 mt-2 mb-4;
   }
   .devise-grid {
-    @apply md:grid md:grid-cols-2
+    @apply md:grid md:grid-cols-2 overflow-y-hidden h-screen;
   }
   .devise-links {
-    @apply flex justify-between items-center mx-auto p-2 mt-2
+    @apply flex justify-between items-center mx-auto p-2 mt-2;
   }
   .devise-left {
     @apply lg:w-[31rem] bg-violet-600 md:flex md:justify-center md:items-center md:p-4 md:pb-20 hidden
