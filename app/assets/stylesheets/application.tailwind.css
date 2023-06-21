@@ -77,16 +77,16 @@
     @apply h-[20.6rem] w-3/4 mt-12
   }
   .devise-title {
-    @apply text-center font-medium tracking-wide p-2 text-2xl text-neutral-700
+    @apply text-center font-medium tracking-wide p-2 text-2xl text-neutral-700;
   }
   .devise-paragraph {
-    @apply mx-auto text-center font-light text-xs text-neutral-500 mt-2 mb-4
+    @apply mx-auto text-center font-light text-xs text-neutral-500 mt-2 mb-4;
   }
   .devise-grid {
-    @apply md:grid md:grid-cols-2
+    @apply md:grid md:grid-cols-2 overflow-y-hidden h-screen;
   }
   .devise-links {
-    @apply flex justify-between items-center mx-auto p-2 mt-2
+    @apply flex justify-between items-center mx-auto p-2 mt-2;
   }
   .devise-left {
     @apply lg:w-[31rem] bg-violet-600 md:flex md:justify-center md:items-center md:p-4 md:pb-20 hidden
@@ -199,5 +199,31 @@
 
   .comment-avatar {
     @apply w-8 h-8 rounded-full
+  }
+
+  /* notifications - alert */
+
+  .notification-box {
+    @apply flex justify-around items-center py-4 px-6 w-fit backdrop-blur-xl rounded-lg relative z-50 bottom-[109vh] left-[69%] transition ease-in-out duration-500;
+  }
+
+  .notification-text {
+    @apply mr-6 font-bold text-neutral-800;
+  }
+
+  .bg-notice {
+    @apply bg-green-200/50;
+  }
+
+  .bg-alert {
+    @apply bg-red-200/50;
+  }
+
+  .icon-notice {
+    @apply text-green-700;
+  }
+
+  .icon-alert {
+    @apply text-red-700;
   }
 }
