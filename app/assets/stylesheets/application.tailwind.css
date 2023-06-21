@@ -7,7 +7,7 @@
 @layer components {
 
   .navbar {
-    @apply w-full transition ease-in-out duration-300 fixed top-0 z-50 p-8;
+    @apply w-full transition ease-in-out duration-300 fixed top-0 z-50 p-4 md:p-8;
   }
 
   .hide-btn-navbar {
@@ -15,7 +15,7 @@
   }
 
   .navbar-white {
-    @apply w-full shadow-md bg-white z-50 p-4;
+    @apply w-full shadow-md bg-white z-50 py-2 px-5 md:py-3;
   }
 
   .navbar-transparent {
