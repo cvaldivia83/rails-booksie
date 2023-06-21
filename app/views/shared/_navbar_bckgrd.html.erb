@@ -1,4 +1,4 @@
-<div class="data w-full duration-500 shadow-md bg-white" data-controller="navbar">
+<div class="data w-full duration-500 shadow-md bg-white navbar-white" data-controller="navbar">
   <div class="w-full transparent py-5 px-8 flex justify-between items-center z-20">
     <div class="flex">
       <%= link_to 'Books', books_path, class: 'navbar-link'  %>
@@ -14,12 +14,12 @@
 
     <% else %>
 
-      <div class="hidden md:inline">
+      <div class="hidden md:inline-block">
         <%= link_to 'Sign Up', new_user_registration_path, class: 'btn-violet-solid mr-2'  %>
         <%= link_to 'Sign In', user_session_path, class: 'btn-violet-outlined'  %>
       </div>
 
-      <div class="inline md:hidden">
+      <div class="inline md:max-xl:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-neutral-700" data-action="click->navbar#dropdownMobile">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>

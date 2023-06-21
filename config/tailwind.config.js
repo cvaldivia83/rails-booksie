@@ -9,22 +9,23 @@ module.exports = {
   ],
   theme: {
     extend: {
+      important: "#hide-btn-navbar",
       width: {
-        '52': '13rem',
-        '56': '14rem',
-        '58': '14.5rem',
-        '112': '28rem',
-        '120': '30rem',
-        '128': '32rem',
-        '136': '34rem',
-        '144': '36rem'
+        52: "13rem",
+        56: "14rem",
+        58: "14.5rem",
+        112: "28rem",
+        120: "30rem",
+        128: "32rem",
+        136: "34rem",
+        144: "36rem",
       },
       height: {
-        '72': '18rem',
-        '84': '21rem',
-        '47': '11.75rem',
-        '50': '12.5rem',
-        '54': '13.5rem'
+        72: "18rem",
+        84: "21rem",
+        47: "11.75rem",
+        50: "12.5rem",
+        54: "13.5rem",
       },
       grayscale: {
         50: "50%",
@@ -32,7 +33,7 @@ module.exports = {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
         pacifico: ["Pacifico", "sans-serif"],
-      }
+      },
     },
   },
   plugins: [
