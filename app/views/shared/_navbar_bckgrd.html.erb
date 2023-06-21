@@ -1,47 +1,55 @@
-<div class="data w-full duration-500 shadow-md bg-white navbar-white" data-controller="navbar">
-  <div class="w-full transparent py-5 px-8 flex justify-between items-center z-20">
+<nav class="navbar-white" data-controller="navbar">
+  <div class="navbar-transparent">
     <div class="flex">
-      <%= link_to 'Books', books_path, class: 'navbar-link'  %>
+      <%= link_to 'Books', books_path, class: 'navbar-link' %>
       <%= link_to 'Blog', posts_path, class: 'navbar-link'  %>
     </div>
 
     <% if user_signed_in? %>
 
-      <div class="">
-        <%= cl_image_tag current_user.photo.key, crop: :fill, class: "navbar-avatar md:block", data: {navbar_target: "avatar", action: 'click->navbar#dropdown'}, tabindex: "0"  %>
+      <%= cl_image_tag current_user.photo.key, crop: :fill, class: 'navbar-avatar md:block', data: {navbar_target: 'avatar',
+            action: 'click->navbar#dropdown'
+      } %>
 
+      <%# Dropdown Menu Signed In %>
+
+      <div class="navbar-menu hidden mt-52" data-navbar-target="menu" id="menu">
+        <%= link_to "Profile", user_path(@user), class: "navbar-menu_item" %>
+        <%= link_to "Wishlist", "#", class: "navbar-menu_item" %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
+        class: "navbar-menu_item" %>
       </div>
 
-    <% else %>
 
-      <div class="hidden md:inline-block">
-        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn-violet-solid mr-2'  %>
-        <%= link_to 'Sign In', user_session_path, class: 'btn-violet-outlined'  %>
-      </div>
+  <% else %>
 
-      <div class="inline md:max-xl:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-neutral-700" data-action="click->navbar#dropdownMobile">
+    <%# MD & LG log in btn %>
+
+    <div class="hide-btn-navbar" id="hide-btn-navbar">
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn-violet-solid mr-2'  %>
+      <%= link_to 'Log In', user_session_path, class: 'btn-violet-outlined'  %>
+    </div>
+
+    <%# SM sandwich menu %>
+
+    <div class="inline md:max-xl:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-neutral-700" data-action="click->navbar#dropdownMobile">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
+      </svg>
+    </div>
+
+
+    <%# Dropdown Menu NOT Signed In %>
+
+    <div class="navbar-menu hidden" data-navbar-target="mobileMenu" id="mobile-menu">
+      <div class="flex flex-col">
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'navbar-menu_item'  %>
+        <%= link_to 'Sign In', user_session_path, class: 'navbar-menu_item'  %>
       </div>
+    </div>
+
 
     <% end %>
-
   </div>
 
-  <% if user_signed_in? %>
-  <%# Dropdown menu %>
-
-    <div class="navbar-menu hidden" data-navbar-target="menu" id="menu">
-      <%= link_to "Profile", user_path(@user), class: "navbar-menu_item" %>
-      <%= link_to "Wishlist", wishlists_path, class: "navbar-menu_item" %>
-      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
-      class: "navbar-menu_item" %>
-    </div>
-  <% else %>
-    <div class="navbar-menu hidden" data-navbar-target="mobileMenu" id="mobile-menu">
-      <%= link_to 'Sign Up', new_user_registration_path, class: 'navbar-menu_item'  %>
-      <%= link_to 'Sign In', user_session_path, class: 'navbar-menu_item'  %>
-    </div>
-  <% end %>
-</div>
+</nav>

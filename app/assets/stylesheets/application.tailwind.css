@@ -7,15 +7,19 @@
 @layer components {
 
   .navbar {
-    @apply w-full transition ease-in-out duration-300 fixed top-0 z-50;
+    @apply w-full transition ease-in-out duration-300 fixed top-0 z-50 p-8;
   }
 
   .hide-btn-navbar {
     @apply hidden md:inline;
   }
 
+  .navbar-white {
+    @apply w-full shadow-md bg-white z-50 p-4;
+  }
+
   .navbar-transparent {
-    @apply w-full bg-transparent py-8 px-8 flex justify-between items-center z-20;
+    @apply w-full bg-transparent flex justify-between items-center z-20;
   }
   /* Navbar */
   .navbar-link {
