@@ -8,7 +8,7 @@
             <h2 class="book-card_title"><%= book.title %></h2>
             <h3 class="book-card_subtitle"><%= book.author %></h3>
           </div>
-
+          <span class="book-card_rating"><i class="fa-solid fa-star"></i> <%= book.ratings.average("rating") %></span>
         </div>
       <% end %>
     </div>

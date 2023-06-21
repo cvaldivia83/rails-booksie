@@ -90,7 +90,7 @@ book_ids.each_with_index do |book, index|
   new_book.save!
   puts "Created book number #{index + 1}"
 
-  rating_book = Rating.new(rating: book['volumeInfo']['averageRating'].to_i, book: new_book)
+  rating_book = Rating.new(rating: book['volumeInfo']['averageRating'].to_i, book: new_book, user: users[1..10].sample)
 
   rating_book.save!
 

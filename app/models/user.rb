@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :wishlists, dependent: :destroy
+  has_many :books, through: :wishlist
   has_many :books, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :ratings, dependent: :destroy
