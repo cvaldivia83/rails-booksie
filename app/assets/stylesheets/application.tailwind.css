@@ -208,7 +208,7 @@
   }
 
   .notification-text {
-    @apply mr-6 font-bold text-neutral-800;
+    @apply mr-6 font-bold text-neutral-800 antialiased;
   }
 
   .bg-notice {
