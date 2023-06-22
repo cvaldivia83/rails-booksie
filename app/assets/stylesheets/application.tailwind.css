@@ -83,7 +83,7 @@
     @apply mx-auto text-center font-light text-xs text-neutral-500 mt-2 mb-4;
   }
   .devise-grid {
-    @apply md:grid md:grid-cols-2 overflow-y-hidden h-screen;
+    @apply md:grid md:grid-cols-2 md:overflow-y-hidden h-screen;
   }
   .devise-links {
     @apply flex justify-between items-center mx-auto p-2 mt-2;
