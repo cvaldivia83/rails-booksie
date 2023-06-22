@@ -4,5 +4,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@fortawesome/fontawesome-free";
 import Notification from "stimulus-notification";
+import PasswordVisibility from "stimulus-password-visibility";
 
-Stimulus.register("notification", Notification)
+Stimulus.register("notification", Notification);
+
+Stimulus.register("password-visibility", PasswordVisibility);

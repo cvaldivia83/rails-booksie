@@ -22,12 +22,19 @@
                       placeholder: 'E-mail',
                       input_html: { autocomplete: "email", class: 'devise-form-input mr-2' }
                       %>
-                <%= f.input :password,
+          <div data-controller="password-visibility">
+            <%= f.input :password,
                 required: false,
                 label: false,
                 placeholder: 'Password',
-                input_html: { autocomplete: "current-password", class: 'devise-form-input' }
-                %>
+                input_html: { autocomplete: "current-password", class: 'devise-form-input',
+                data: { password_visibility_target: 'input'} }
+            %>
+            <button type="button" data-action="password-visibility#toggle" class="text-gray-500 absolute top-[53%] bottom-0 right-10 min-[375px]:top-[46%] min-[375px]:right-12 min-[850px]:right-16 min-[1000px]:top-[8%] min-[1000px]:right-20 pr-3 flex items-center cursor-pointer">
+              <span data-password-visibility-target="icon"><i class="fa-solid fa-eye"></i></span>
+              <span data-password-visibility-target="icon" class="hidden"><i class="fa-solid fa-eye-slash"></i></span>
+            </button>
+          </div>
 
           <div class="my-4">
             <%= f.input :remember_me, input_html: {class: 'devise-remember-me-input'}, label_html: {class: 'devise-remember-me-label'}, as: :boolean if devise_mapping.rememberable? %>
