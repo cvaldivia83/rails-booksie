@@ -12,12 +12,17 @@ class WishlistsController < ApplicationController
   def create
     @wishlist = Wishlist.new(wishlist_params)
     @wishlist.user = current_user
-    @wishlist.save!
+    authorize @wishlist
+    if @wishlist.save
+      redirect_to wishlists_path
+    else
+      render 'books/show', status: :unprocessable_entity
+    end
   end
 
   private
 
   def wishlist_params
-    params.require(:wishlist).permit(:book)
+    params.require(:wishlist).permit(:book_id)
   end
 end

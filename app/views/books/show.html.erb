@@ -31,6 +31,13 @@
           <%= f.submit "Send your rating", class: "hidden" %>
         <% end %>
       <% end %>
+
+      <%= simple_form_for (@wishlist) do |f| %>
+        <div class="hidden">
+          <%= f.input :book_id, input_html: { value: @book.id } %>
+        </div>
+        <%= f.button :submit, class: 'btn-violet-solid' %>
+      <% end %>
     </div>
   </div>
 

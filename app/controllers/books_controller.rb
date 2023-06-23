@@ -17,6 +17,7 @@ class BooksController < ApplicationController
   def show
     authorize @book
     @rating = Rating.new
+    @wishlist = Wishlist.new
   end
 
   private
