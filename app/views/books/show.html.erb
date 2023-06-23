@@ -1,43 +1,51 @@
 <div class="regular-container">
   <div class="flex justify-start">
     <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill, class: 'book-card_image mr-8' %>
-    <div class="infos">
-      <h1 class="text-4xl font-bold text-neutral-700"><%= @book.title %></h1>
+    <div class="infos flex flex-col justify-around">
 
-      <div class="flex flex-col md:flex-row lg:flex-row justify-evenly items-center my-4">
-        <div class="text">
-          <span class="text-xs font-bold text-violet-700">Publisher:</span>
-          <span class="text-xs font-bold"><%= @book.publisher %></span>
+      <div class="infos-book">
+
+        <h1 class="text-4xl font-bold text-neutral-700"><%= @book.title %></h1>
+
+        <div class="flex flex-col md:flex-row lg:flex-row justify-evenly items-center my-4">
+          <div class="text">
+            <span class="text-xs font-bold text-violet-700">Publisher:</span>
+            <span class="text-xs font-bold"><%= @book.publisher %></span>
+          </div>
+
+          <span class="text-[0.3rem] text-violet-300 px-4"><i class="fa-solid fa-circle "></i></span>
+          <span class="text-xs font-bold"><%= @book.year %>  </span>
+          <span class="text-[0.3rem] text-violet-300 px-4"><i class="fa-solid fa-circle "></i></span>
+          <div class="text">
+            <span class="text-xs font-bold text-violet-700">ISBN:</span>
+            <span class="text-xs font-bold"><%= @book.isbn %> </span>
+          </div>
         </div>
 
-        <span class="text-[0.3rem] text-violet-300 px-4"><i class="fa-solid fa-circle "></i></span>
-        <span class="text-xs font-bold"><%= @book.year %>  </span>
-        <span class="text-[0.3rem] text-violet-300 px-4"><i class="fa-solid fa-circle "></i></span>
-        <div class="text">
-          <span class="text-xs font-bold text-violet-700">ISBN:</span>
-          <span class="text-xs font-bold"><%= @book.isbn %> </span>
-        </div>
+        <h2 class="font-light text-base lg:text-2xl md:text-2xl leading-4 mt-2 text-neutral-700"><%= @book.author %></h2>
+
+        <% if Rating.where(user: current_user, book: @book).exists? %>
+          <span class="small-paragraph"><i class="fa-solid fa-star"></i> <%= Rating.where(user: current_user, book: @book).average("rating").round(2) %></span>
+        <% else %>
+          <%= simple_form_for([@book, @rating], data: { controller: "star-rating" }) do |f| %>
+            <div  data-action="click->star-rating#submit">
+              <%= f.input :rating, collection: (1..5).to_a, label: false, input_html: { data: { star_rating_target: "input" }} %>
+            </div>
+            <%= f.submit "Send your rating", class: "hidden" %>
+          <% end %>
+        <% end %>
       </div>
 
-      <h2 class="font-light text-base lg:text-2xl md:text-2xl leading-4 mt-2 text-neutral-700"><%= @book.author %></h2>
-
-      <% if Rating.where(user: current_user, book: @book).exists? %>
-        <span class="small-paragraph"><i class="fa-solid fa-star"></i> <%= Rating.where(user: current_user, book: @book).average("rating").round(2) %></span>
-      <% else %>
-        <%= simple_form_for([@book, @rating], data: { controller: "star-rating" }) do |f| %>
-          <div  data-action="click->star-rating#submit">
-            <%= f.input :rating, collection: (1..5).to_a, label: false, input_html: { data: { star_rating_target: "input" }} %>
+      <div class="infos-btn">
+        <%= simple_form_for (@wishlist) do |f| %>
+          <div class="hidden">
+            <%= f.input :book_id, input_html: { value: @book.id } %>
           </div>
-          <%= f.submit "Send your rating", class: "hidden" %>
+          <%= f.button :submit, class: 'btn-violet-solid' %>
         <% end %>
-      <% end %>
 
-      <%= simple_form_for (@wishlist) do |f| %>
-        <div class="hidden">
-          <%= f.input :book_id, input_html: { value: @book.id } %>
-        </div>
-        <%= f.button :submit, class: 'btn-violet-solid' %>
-      <% end %>
+      </div>
+
     </div>
   </div>
 
