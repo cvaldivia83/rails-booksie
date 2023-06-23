@@ -1,6 +1,8 @@
 class Book < ApplicationRecord
   belongs_to :user
   has_many :whishlists, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+  has_many :users, through: :bookings
   has_many :users, through: :wishlist
   has_many :ratings, dependent: :destroy
   has_one_attached :photo
