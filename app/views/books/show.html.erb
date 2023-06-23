@@ -1,6 +1,6 @@
 <div class="regular-container">
-  <div class="flex justify-start">
-    <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill, class: 'book-card_image mr-8' %>
+  <div class="flex flex-col md:flex-row">
+    <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill, class: 'book-card_image md:mr-16' %>
     <div class="infos flex flex-col justify-around">
 
       <div class="infos-book">
