@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :books, only: %i[index show] do
     resources :ratings, only: %i[new create]
+    resources :bookings, only: %i[new create]
   end
 
   resources :wishlists, only: %i[index new create]
