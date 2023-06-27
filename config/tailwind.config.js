@@ -10,6 +10,9 @@ module.exports = {
   theme: {
     extend: {
       important: "#hide-btn-navbar",
+      translate: {
+        '100': '-100%',
+      },
       width: {
         52: "13rem",
         56: "14rem",
