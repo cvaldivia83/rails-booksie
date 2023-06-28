@@ -1,6 +1,6 @@
 <%= simple_form_for [@book, @booking] do |f| %>
-  <%= f.input :start_date, placeholder: 'Start Date', label: false, input_html: { class: 'devise-form-input' } %>
-  <%= f.input :end_date, label: false, placeholder: 'End Date', input_html: { class: 'devise-form-input' } %>
-  <%= f.association :book, label: false, input_html: { class: 'devise-form-input' } %>
+  <%= f.input :start_date, as: :date,  placeholder: 'Start Date', label: false, input_html: { class: 'devise-form-input' } %>
+  <%= f.input :end_date, as: :date, label: false, placeholder: 'End Date', input_html: { class: 'devise-form-input' } %>
+  <%= f.association :book, label: false, input_html: { class: 'devise-form-input',  value: @book } %>
   <%= f.button :submit, "Book now", class: 'btn-violet-solid mt-4 mx-auto' %>
 <% end %>
