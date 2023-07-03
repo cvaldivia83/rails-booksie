@@ -18,6 +18,7 @@ class BooksController < ApplicationController
     authorize @book
     @rating = Rating.new
     @wishlist = Wishlist.new
+    @booking = Booking.new
   end
 
   private

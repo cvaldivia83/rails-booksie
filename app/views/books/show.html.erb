@@ -1,6 +1,6 @@
 <div class="regular-container">
-  <div class="flex justify-start">
-    <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill, class: 'book-card_image mr-8' %>
+  <div class="flex flex-col md:flex-row">
+    <%= cl_image_tag @book.photo.key, height: 300, width: 300, crop: :fill, class: 'book-card_image md:mr-16' %>
     <div class="infos flex flex-col justify-around">
 
       <div class="infos-book">
@@ -36,13 +36,15 @@
         <% end %>
       </div>
 
-      <div class="infos-btn">
+      <div class="infos-btn flex justify-around">
         <%= simple_form_for (@wishlist) do |f| %>
           <div class="hidden">
             <%= f.input :book_id, input_html: { value: @book.id } %>
           </div>
-          <%= f.button :submit, class: 'btn-violet-solid' %>
+          <%= f.button :submit, "Save For Later", class: 'btn-violet-solid' %>
         <% end %>
+
+        <%= link_to "Book this Book", new_book_booking_path(@book), class: "btn-violet-outlined"  %>
 
       </div>
 
