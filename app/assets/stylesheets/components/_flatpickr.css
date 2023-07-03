@@ -574,11 +574,11 @@ span.flatpickr-weekday {
 .flatpickr-day.selected.nextMonthDay,
 .flatpickr-day.startRange.nextMonthDay,
 .flatpickr-day.endRange.nextMonthDay {
-  background: #ff5a5f;
+  background: #a78bfa;
   -webkit-box-shadow: none;
           box-shadow: none;
   color: #fff;
-  border-color: #ff5a5f;
+  border-color: #a78bfa;
 }
 .flatpickr-day.selected.startRange,
 .flatpickr-day.startRange.startRange,
