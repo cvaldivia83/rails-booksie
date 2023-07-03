@@ -9,4 +9,21 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     authorize @booking
   end
+
+  def create
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    authorize @booking
+    if @booking.save
+      redirect_to user_path(current_user)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date, :book_id)
+  end
 end
