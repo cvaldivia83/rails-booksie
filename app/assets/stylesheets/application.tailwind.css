@@ -168,7 +168,7 @@
   }
   /* book card index */
   .book-card {
-    @apply w-58 mx-auto
+    @apply mx-auto flex
   }
   .book-card_image {
     @apply w-58 h-72 rounded-lg
