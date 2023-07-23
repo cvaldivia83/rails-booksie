@@ -1,3 +1,5 @@
 <div class="container mx-auto p-16">
-  <%= render 'bookings/form' %>
+<%= turbo_frame_tag "second_frame" do %>
+  <%= render 'bookings/form', book: @book, booking: @booking %>
+<% end %>
 </div>
