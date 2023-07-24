@@ -32,6 +32,7 @@
     </div>
   </div>
 
+<%= turbo_frame_tag "book_booking" do %>
   <div class="flex justify-between mt-8 mx-8">
     <%= simple_form_for (@wishlist) do |f| %>
       <div class="hidden">
@@ -39,13 +40,11 @@
       </div>
       <%= f.button :submit, "Save For Later", class: 'btn-violet-solid' %>
     <% end %>
-    <%= turbo_frame_tag "book_booking" do %>
-      <%= link_to "Book this Book", new_book_booking_path(@book), class: "btn-violet-outlined",
-      data: { turbo_frame: "second_frame" }  %>
-    <% end  %>
+      <%= link_to "Book this Book", new_book_booking_path(@book), class: "btn-violet-outlined" %>
   </div>
+<% end  %>
 
-  <%= turbo_frame_tag "second_frame" %>
+
 
   <div class="book-paragraph">
     <p class="small-paragraph my-16"><%= @book.description %></p>
