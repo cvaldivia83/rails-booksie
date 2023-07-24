@@ -33,15 +33,7 @@
   </div>
 
 <%= turbo_frame_tag "book_booking" do %>
-  <div class="flex justify-between mt-8 mx-8">
-    <%= simple_form_for (@wishlist) do |f| %>
-      <div class="hidden">
-        <%= f.input :book_id, input_html: { value: @book.id } %>
-      </div>
-      <%= f.button :submit, "Save For Later", class: 'btn-violet-solid' %>
-    <% end %>
-      <%= link_to "Book this Book", new_book_booking_path(@book), class: "btn-violet-outlined" %>
-  </div>
+    <%= render 'shared/btn_actions', wishlist: @wishlist, book: @book %>
 <% end  %>
 
 
