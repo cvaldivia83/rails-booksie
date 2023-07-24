@@ -44,6 +44,12 @@
     @apply bg-neutral-100 border-t-neutral-300 border-2 py-8
   }
 
+  /* Error */
+
+  .error {
+    @apply mt-2 text-sm text-neutral-500 font-bold
+  }
+
   /* Buttons */
 
   .btn-violet-solid {

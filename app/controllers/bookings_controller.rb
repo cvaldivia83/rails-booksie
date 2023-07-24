@@ -16,13 +16,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     authorize @booking
-    if @booking.save
-      respond_to do |format|
+    respond_to do |format|
+      if @booking.save
         format.html { redirect_to user_path(current_user), notice: "Book was successfully booked." }
         format.turbo_stream
+      else
+        format.html { render :new, status: :unprocessable_entity }
       end
-    else
-      render :new, status: :unprocessable_entity
     end
   end
 
