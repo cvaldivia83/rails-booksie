@@ -1,5 +1,5 @@
 <div class="flex justify-between mt-8 mx-8">
-  <%= simple_form_for(wishlist) do |f| %>
+  <%= simple_form_for(wishlist, data: { turbo: "false" }) do |f| %>
     <div class="hidden">
       <%= f.input :book_id, input_html: { value: @book.id } %>
     </div>
