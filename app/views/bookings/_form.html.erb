@@ -5,5 +5,8 @@
 
   <%= f.association :book, label: false, input_html: { class: 'devise-form-input'}, selected: params[:book_id] %>
 
-  <%= f.button :submit, "Book now", class: 'btn-violet-solid mt-4 mx-auto' %>
+  <div class="flex justify-between">
+    <%= f.button :submit, "Book now", class: 'btn-violet-solid mt-4 mx-4' %>
+    <%= link_to "Cancel", book_path(@book), class: "btn-violet-outlined mt-4 mx-4" %>
+  </div>
 <% end %>
