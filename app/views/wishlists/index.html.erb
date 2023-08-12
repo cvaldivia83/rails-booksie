@@ -4,4 +4,8 @@
   <div class="text-right">
     <%= link_to "New Wishlist", new_wishlist_path, class: 'btn-violet-solid'  %>
   </div>
+
+  <% @wishlist.each do |wishlist| %>
+    <%= wishlist %>
+  <% end %>
 </div>
