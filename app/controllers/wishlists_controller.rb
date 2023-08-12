@@ -4,6 +4,11 @@ class WishlistsController < ApplicationController
     @wishlists = policy_scope(Wishlist)
   end
 
+  def show
+    @wishlist = Wishlist.find(params[:id])
+    authorize @wishlist
+  end
+
   def new
     @wishlist = Wishlist.new
     authorize @wishlist

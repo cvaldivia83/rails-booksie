@@ -1,0 +1,9 @@
+<div class="regular-container">
+  <h1><%= @list.name %></h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <% @list.wishlists.each do |wishlist| %>
+      <%= wishlist.book.title %>
+    <% end %>
+  </div>
+</div>

@@ -5,7 +5,14 @@
     <%= link_to "New Wishlist", new_wishlist_path, class: 'btn-violet-solid'  %>
   </div>
 
-  <% @wishlist.each do |wishlist| %>
-    <%= wishlist %>
-  <% end %>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+    <% @wishlists.each do |wishlist| %>
+      <%= link_to wishlist_path(wishlist) do %>
+        <div class="wishlist-card">
+          <h2 class="drop-shadow-lg"> <%= wishlist.name %></h2>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
 </div>
