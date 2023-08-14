@@ -1,9 +1,13 @@
 <div class="regular-container">
-  <h1><%= @list.name %></h1>
+  <h1 class="main-title">Wishlist</h1>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <% @list.wishlists.each do |wishlist| %>
-      <%= wishlist.book.title %>
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do  %>
+        <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-12 px-0 rounded-lg">
+          <h1 class="text-center text-white font-bold text-xl"><%= list.name %></h1>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
