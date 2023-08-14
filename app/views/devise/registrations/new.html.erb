@@ -35,6 +35,19 @@
         </div>
 
         <%= f.input :photo, as: :file, label: false, input_html: {class: 'devise-file-input'} %>
+
+        <%= f.input :address,
+          required: true,
+          label: false,
+          placeholder: 'Address',
+          input_html: { autocomplete: "Address", class: 'devise-form-input' } %>
+
+      <%= f.input :bio,
+          required: true,
+          label: false,
+          placeholder: 'Bio',
+          input_html: { autocomplete: "Bio", class: 'devise-form-input' } %>
+
         <div class="md:grid md:grid-cols-2 md:gap-2">
 
         <div data-controller="password-visibility">

@@ -5,33 +5,48 @@
       <div class="form-inputs">
         <div class="md:grid md:grid-cols-2 md:gap-2">
           <%= f.input :email,
-                    required: true,
-                    label: false,
-                    placeholder: 'E-mail',
-                    autofocus: true,
-                    input_html: { autocomplete: "email", class: 'devise-form-input' }%>
+            required: true,
+            label: false,
+            placeholder: 'E-mail',
+            autofocus: true,
+            input_html: { autocomplete: "E-mail", class: 'devise-form-input' }%>
+
         <%= f.input :username,
-                    required: true,
-                    label: false,
-                    placeholder: 'Username',
-                    autofocus: true,
-                    input_html: { autocomplete: "email", class: 'devise-form-input' }%>
+          required: true,
+          label: false,
+          placeholder: 'Username',
+          autofocus: true,
+          input_html: { autocomplete: "email", class: 'devise-form-input' }%>
         </div>
 
         <%= f.input :photo, as: :file, label: false, input_html: {class: 'devise-file-input'} %>
+
         <div class="md:grid md:grid-cols-2 md:gap-2">
           <%= f.input :password,
-                      required: true,
-                      label: false,
-                      placeholder: 'Password',
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password", class: 'devise-form-input' } %>
+            required: true,
+            label: false,
+            placeholder: 'Password',
+            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            input_html: { autocomplete: "new-password", class: 'devise-form-input' } %>
+
           <%= f.input :password_confirmation,
-                      required: true,
-                      label: false,
-                      placeholder: 'Confirm password',
-                      input_html: { autocomplete: "new-password", class: 'devise-form-input' } %>
+            required: true,
+            label: false,
+            placeholder: 'Confirm password',
+            input_html: { autocomplete: "new-password", class: 'devise-form-input' } %>
         </div>
+
+        <%= f.input :address,
+          required: true,
+          label: false,
+          placeholder: 'Address',
+          input_html: { autocomplete: "Address", class: 'devise-form-input' } %>
+
+        <%= f.input :bio,
+          required: true,
+          label: false,
+          placeholder: 'Bio',
+          input_html: { autocomplete: "Bio", class: 'devise-form-input' } %>
 
       </div>
 
