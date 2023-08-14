@@ -1,4 +1,4 @@
-class WishlistPolicy < ApplicationPolicy
+class ListPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
@@ -19,6 +19,6 @@ class WishlistPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
+    record.user == user
   end
 end

@@ -9,6 +9,9 @@ Rating.destroy_all
 Book.destroy_all
 Comment.destroy_all
 Post.destroy_all
+Wishlist.destroy_all
+List.destroy_all
+Booking.destroy_all
 
 puts 'Starting to seed users'
 
@@ -63,7 +66,7 @@ end
 users = User.all
 
 # Retrieve a specific volume from Google's Book API
-book_ids = ['EezJAwAAQBAJ', 'vU-FAAAAQBAJ', 'ss4RngEACAAJ', 'hHCKDwAAQBAJ', '7cibSgAACAAJ', '5KlizgEACAAJ' ]
+book_ids = ['EezJAwAAQBAJ', 'vU-FAAAAQBAJ', 'ss4RngEACAAJ', 'hHCKDwAAQBAJ', '7cibSgAACAAJ', '5KlizgEACAAJ', 'Xk_YAAAAMAAJ', 'upb5DwAAQBAJ', 'dMBZjwEACAAJ', 'frx1jwEACAAJ', '7ERzDwAAQBAJ', 'gIGUEAAAQBAJ' ]
 
 google_api = ENV['GOOGLE_BOOKS']
 

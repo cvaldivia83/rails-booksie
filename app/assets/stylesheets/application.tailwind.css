@@ -233,3 +233,7 @@
     @apply text-red-700;
   }
 }
+
+.wishlist-card {
+  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-16 px-24 flex justify-center items-center rounded-lg font-semibold text-2xl text-white
+}

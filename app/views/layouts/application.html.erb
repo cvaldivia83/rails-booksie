@@ -18,11 +18,11 @@
   </head>
 
   <body>
-    <main class="content h-screen">
+    <main class="content h-4/5">
       <%= render_navbar_conditionally %>
       <%= yield %>
       <%= render 'shared/flashes' %>
-      <%= render_footer %>
     </main>
+    <%= render_footer %>
   </body>
 </html>

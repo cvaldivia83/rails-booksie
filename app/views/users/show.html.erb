@@ -61,16 +61,7 @@
     <div class="mt-6 py-6 border-t border-neutral-200 text-center ">
       <h2 class="text-2xl text-neutral-700 font-bold leading-normal mb-1">My Wishlist</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        <% @user.wishlists.each do |wishlist| %>
-          <div class="card flex justify-center items-center m-2">
-            <%= cl_image_tag wishlist.book.photo.key, height: 100, width: 60, crop: :fill, class: "rounded-md" %>
-            <div class="book-infos ms-4">
-              <h3 class="font-semibold text-neutral-600 whitespace-normal"><%= wishlist.book.title %></h3>
-              <p class="font-light leading-relaxed text-neutral-600 mb-4 text-left whitesh3ace-normal"><%= wishlist.book.author %></p>
-            </div>
-          </div>
 
-        <% end %>
       </div>
     </div>
   </div>

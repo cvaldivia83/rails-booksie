@@ -2,7 +2,8 @@
   <h1 class="main-title">Add To Your Wishlist</h1>
   <%= simple_form_for (@wishlist) do |f| %>
     <div class="flex flex-col justify-center items-center">
-      <%= f.association :book, placeholder: 'Select a book', label: false, input_html: { class: 'devise-form-input' } %>
+      <%= f.association :list, label: false, input_html: { class: 'devise-form-input' } %>
+      <%= f.association :book, label: false, input_html: { class: 'devise-form-input' } %>
       <%= f.button :submit, class: 'btn-violet-solid mt-4' %>
     </div>
   <% end %>

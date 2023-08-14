@@ -1,0 +1,29 @@
+<div class="regular-container">
+  <h1 class="main-title"><%= @list.name %></h1>
+
+
+  <div class="flex justify-end m-6">
+    <%= link_to new_wishlist_path do %>
+      <span class="btn-violet-outlined text-xl text-end px-6">
+        <i class="fa-solid fa-circle-plus"></i>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 my-4">
+    <% @list.wishlists.each do |wishlist| %>
+      <div class="card flex justify-center items-center m-2">
+        <%= cl_image_tag wishlist.book.photo.key, height: 100, width: 60, crop: :fill, class: "rounded-md" %>
+        <div class="book-infos ms-4">
+          <h3 class="font-semibold text-neutral-600 whitespace-normal"><%= wishlist.book.title %></h3>
+          <p class="font-light leading-relaxed text-neutral-600 mb-4 text-left whitesh3ace-normal"><%= wishlist.book.author %></p>
+        </div>
+        <div class="flex justify-end items-end h-full text-violet-700">
+          <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe,
+          wishlist_path(wishlist),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

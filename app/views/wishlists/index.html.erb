@@ -1,23 +1,18 @@
 
 <div class="regular-container">
-  <h1 class="main-title mt-12 mb-8">Your BookList of Wishes</h1>
+  <h1 class="main-title mt-12 mb-8">Wishlists</h1>
   <div class="text-right">
-    <%= link_to "Add a book", new_wishlist_path, class: 'btn-violet-solid'  %>
+    <%= link_to "New Wishlist", new_wishlist_path, class: 'btn-violet-solid'  %>
   </div>
-</div>
-<div class="thin-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2" data-search-books-target="list">
-  <% @wishlists.each do |item| %>
-    <div class="book-card">
-      <%= link_to book_path(item.book) do %>
-        <div style="background-image: url('<%= cl_image_path item.book.photo.key, crop: :fill %>'); background-size: cover" class="book-card_image"></div>
-        <div class="book-card_text">
-          <div class="w-40">
-            <h2 class="book-card_title"><%= item.book.title %></h2>
-            <h3 class="book-card_subtitle"><%= item.book.author %></h3>
-          </div>
-          <span class="book-card_rating"><i class="fa-solid fa-star"></i> <%= item.book.ratings.average("rating") %></span>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+    <% @wishlists.each do |wishlist| %>
+      <%= link_to wishlist_path(wishlist) do %>
+        <div class="wishlist-card">
+          <h2 class="drop-shadow-lg"> <%= wishlist.name %></h2>
         </div>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+
+  </div>
 </div>

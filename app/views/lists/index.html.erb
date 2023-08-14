@@ -1,0 +1,25 @@
+<div class="regular-container">
+  <h1 class="main-title">Wishlist</h1>
+    <div class="flex justify-end m-6">
+      <%= link_to new_list_path do %>
+        <span class="btn-violet-outlined text-xl text-end px-6 text-violet-700"><i class="fa-solid fa-circle-plus"></i></span>
+      <% end %>
+    </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 mt-8">
+    <% @lists.each do |list| %>
+      <div>
+        <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg py-8 flex flex-col justify-center items-center relative">
+          <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe,
+            list_path(list),
+            data: {turbo_method: :delete,
+            turbo_confirm: 'Are you sure?'}, class: "absolute end-2 bottom-2 text-white" %>
+          <span class="text-white font-bold text-xl">
+            <%= link_to list.name, list_path(list), class: "text-white font-bold text-xl"  %>
+          </span>
+
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>
