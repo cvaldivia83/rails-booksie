@@ -1,0 +1,6 @@
+<div class="regular-container">
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name, placeholder: 'List Name', label: false, input_html: { class: 'devise-form-input' } %>
+    <%= f.button :submit, class: 'btn-violet-solid mt-4' %>
+  <% end %>
+</div>

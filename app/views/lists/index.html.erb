@@ -1,6 +1,10 @@
 <div class="regular-container">
   <h1 class="main-title">Wishlist</h1>
-
+    <div class="flex justify-end m-6">
+      <%= link_to new_list_path do %>
+        <span class="btn-violet-outlined text-xl text-end px-6"><i class="fa-solid fa-circle-plus"></i></span>
+      <% end %>
+    </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do  %>
