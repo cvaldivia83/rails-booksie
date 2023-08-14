@@ -17,4 +17,8 @@ class WishlistPolicy < ApplicationPolicy
   def create?
     new?
   end
+
+  def destroy?
+    true
+  end
 end
