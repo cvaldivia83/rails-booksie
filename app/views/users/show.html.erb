@@ -34,13 +34,13 @@
     <div class="text-center mt-2">
       <h3 class="text-2xl text-neutral-700 font-bold leading-normal mb-1"><%= @user.username.capitalize %></h3>
       <div class="text-xs mt-0 mb-2 text-neutral-400 font-bold uppercase">
-          <i class="fas fa-map-marker-alt mr-2 text-neutral-400 opacity-75"></i>Paris, France
+          <i class="fas fa-map-marker-alt mr-2 text-neutral-400 opacity-75"></i><%= @user.city.capitalize %>, <%= @user.country.capitalize %>
       </div>
     </div>
     <div class="mt-6 py-6 border-t border-neutral-200 text-center">
         <div class="flex flex-wrap justify-center">
             <div class="w-full px-4">
-                <p class="font-light leading-relaxed text-neutral-600 mb-4">An artist of considerable range, Mike is the name taken by Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and records all of his own music, giving it a warm.</p>
+                <p class="font-light leading-relaxed text-neutral-600 mb-4"><%= @user.bio %></p>
                 <a href="javascript:;" class="font-normal text-neutral-700 hover:text-neutral-400">Follow Account</a>
             </div>
         </div>
