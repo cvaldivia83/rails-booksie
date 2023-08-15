@@ -19,19 +19,22 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <div class="lg:flex lg:justify-between">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
           <%= f.input :email,
-                    required: true,
-                    label: false,
-                    placeholder: 'E-mail',
-                    autofocus: true,
-                    input_html: { autocomplete: "email", class: 'devise-form-input' }%>
-        <%= f.input :username,
-                    required: true,
-                    label: false,
-                    placeholder: 'Username',
-                    autofocus: true,
-                    input_html: { autocomplete: "email", class: 'devise-form-input' }%>
+            required: true,
+            label: false,
+            placeholder: 'E-mail',
+            autofocus: true,
+            input_html: { autocomplete: "email", class: 'devise-form-input' }%>
+
+          <%= f.input :username,
+            required: true,
+            label: false,
+            placeholder: 'Username',
+            autofocus: true,
+            input_html: { autocomplete: "email", class: 'devise-form-input' }%>
+
         </div>
 
         <%= f.input :photo, as: :file, label: false, input_html: {class: 'devise-file-input'} %>
@@ -45,6 +48,7 @@
       <%= f.input :bio,
           required: true,
           label: false,
+          as: :text,
           placeholder: 'Bio',
           input_html: { autocomplete: "Bio", class: 'devise-form-input' } %>
 
