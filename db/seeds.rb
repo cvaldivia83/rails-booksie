@@ -38,7 +38,7 @@ booksie = [true, false].sample
 10.times do |i|
   if i == 0
     user = User.new(
-      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: true, super_booksie: true
+      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: true, super_booksie: true, bio: Faker::Quotes::Shakespeare.romeo_and_juliet_quote, address: "Rua Visconde de Piraja, 142"
     )
     portrait = URI.open(portrait_women[i])
     user.photo.attach(io: portrait, filename: "#{email[i]}.jpg", content_type: 'image/webp')
@@ -47,7 +47,7 @@ booksie = [true, false].sample
     puts "Created user n.#{i + 1}"
   else
     user = User.new(
-      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: false
+      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: false, bio: Faker::Quotes::Shakespeare.romeo_and_juliet_quote, address: "Rua Visconde de Piraja, 142"
     )
 
     if email[i] == "patoche" || email[i] == 'kiko' || email[i] == 'mauro' || email[i] == 'dedemenezes'
