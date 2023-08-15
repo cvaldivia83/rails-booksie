@@ -7,9 +7,17 @@
 
     <% if user_signed_in? %>
 
-      <%= cl_image_tag current_user.photo.key, crop: :fill, class: 'navbar-avatar md:block', data: {navbar_target: 'avatar',
+      <% if current_user.photo.attached? %>
+
+        <%= cl_image_tag current_user.photo.key, crop: :fill, class: 'navbar-avatar md:block', data: {navbar_target: 'avatar',
             action: 'click->navbar#dropdown'
-      } %>
+        } %>
+      <% else %>
+
+        <img src="https://res.cloudinary.com/dd7pbokmj/image/upload/v1692061321/camera-image_xxys0w.jpg" alt="camera-profile" class="navbar-avatar md:block" data-navbar-target="avatar"
+        data-action="click->navbar#dropdown">
+      <% end %>
+
 
       <%# Dropdown Menu Signed In %>
 
@@ -23,32 +31,32 @@
       </div>
 
 
-  <% else %>
+    <% else %>
 
     <%# MD & LG log in btn %>
 
-    <div class="hide-btn-navbar" id="hide-btn-navbar">
-      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn-violet-solid mr-2'  %>
-      <%= link_to 'Log In', user_session_path, class: 'btn-violet-outlined'  %>
-    </div>
+      <div class="hide-btn-navbar" id="hide-btn-navbar">
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn-violet-solid mr-2'  %>
+        <%= link_to 'Log In', user_session_path, class: 'btn-violet-outlined'  %>
+      </div>
 
     <%# SM sandwich menu %>
 
-    <div class="inline md:max-xl:hidden">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-neutral-700" data-action="click->navbar#dropdownMobile">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-    </div>
+      <div class="inline md:max-xl:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-neutral-700" data-action="click->navbar#dropdownMobile">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </div>
 
 
     <%# Dropdown Menu NOT Signed In %>
 
-    <div class="navbar-menu hidden" data-navbar-target="mobileMenu" id="mobile-menu">
-      <div class="flex flex-col">
-        <%= link_to 'Sign Up', new_user_registration_path, class: 'navbar-menu_item'  %>
-        <%= link_to 'Sign In', user_session_path, class: 'navbar-menu_item'  %>
+      <div class="navbar-menu hidden" data-navbar-target="mobileMenu" id="mobile-menu">
+        <div class="flex flex-col">
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'navbar-menu_item'  %>
+          <%= link_to 'Sign In', user_session_path, class: 'navbar-menu_item'  %>
+        </div>
       </div>
-    </div>
 
 
     <% end %>

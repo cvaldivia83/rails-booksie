@@ -7,9 +7,16 @@
 
     <% if user_signed_in? %>
 
-      <%= cl_image_tag current_user.photo.key, crop: :fill, class: 'navbar-avatar md:block', data: {navbar_target: 'avatar',
+      <% if current_user.photo.attached? %>
+
+        <%= cl_image_tag current_user.photo.key, crop: :fill, class: 'navbar-avatar md:block', data: {navbar_target: 'avatar',
             action: 'click->navbar#dropdown'
-      } %>
+        } %>
+      <% else %>
+
+        <img src="https://res.cloudinary.com/dd7pbokmj/image/upload/v1692061321/camera-image_xxys0w.jpg" alt="camera-profile" class="navbar-avatar md:block" data-navbar-target="avatar"
+        data-action="click->navbar#dropdown">
+      <% end %>
 
       <%# Dropdown Menu Signed In %>
 
