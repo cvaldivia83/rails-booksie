@@ -4,11 +4,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     authorize @user
-
-    @markers = {
-      lat: @user.latitude,
-      long: @user.longitude
-    }
+    if @user.geocoded?
+      @markers = {
+        lat: @user.latitude,
+        long: @user.longitude
+      }
+    end
   end
 
   def super_booksie

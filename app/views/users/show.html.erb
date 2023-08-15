@@ -36,6 +36,12 @@
       <div class="text-xs mt-0 mb-2 text-neutral-400 font-bold uppercase">
           <i class="fas fa-map-marker-alt mr-2 text-neutral-400 opacity-75"></i><%= @user.city.capitalize %>, <%= @user.country.capitalize %>
       </div>
+
+      <div id="map" data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+      </div>
     </div>
     <div class="mt-6 py-6 border-t border-neutral-200 text-center">
         <div class="flex flex-wrap justify-center">
