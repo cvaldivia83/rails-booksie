@@ -103,6 +103,14 @@
   .devise-file-input {
     @apply w-full mt-4 file:bg-violet-100 file:text-sm file:font-semibold file:text-violet-700 file:p-2 file:border-0 hover:file:bg-violet-200 text-sm text-neutral-500 bg-neutral-100 rounded
   }
+
+  .devise-eye-left {
+    @apply text-gray-500 absolute top-[54%] bottom-0 right-10 min-[768px]:top-[70%] min-[768px]:right-[25%] min-[375px]:right-12 min-[1024px]:top-[44%] min-[1100px]:top-[50%] pr-3 flex items-center cursor-pointer
+  }
+
+  .devise-eye-right {
+    @apply text-gray-500 absolute top-[93%] bottom-0 right-10 min-[768px]:top-[70%] min-[375px]:right-12 min-[1024px]:top-[44%] min-[1024px]:right-16 min-[1100px]:top-[50%] min-[1100px]:right-20 pr-3 flex items-center cursor-pointer
+  }
   /* form password hint */
   .hint {
     @apply text-xs font-semibold ml-[0.2rem] text-neutral-700

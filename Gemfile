@@ -36,6 +36,9 @@ gem "jbuilder"
 # Simple Form Country Select to allow country input
 gem 'country_select'
 
+# Geocoder For Rails
+gem "geocoder"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

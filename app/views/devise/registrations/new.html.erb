@@ -80,7 +80,7 @@
             hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
             input_html: { autocomplete: "new-password", class: 'devise-form-input',
             data: { password_visibility_target: 'input'} } %>
-            <button type="button" data-action="password-visibility#toggle" class="text-gray-500 absolute top-[54%] bottom-0 right-10 min-[768px]:top-[70%] min-[768px]:right-[25%] min-[375px]:right-12 min-[1024px]:top-[44%] min-[1100px]:top-[50%] pr-3 flex items-center cursor-pointer">
+            <button type="button" data-action="password-visibility#toggle" class="devise-eye-left">
               <span data-password-visibility-target="icon"><i class="fa-solid fa-eye"></i></span>
               <span data-password-visibility-target="icon" class="hidden"><i class="fa-solid fa-eye-slash"></i></span>
             </button>
@@ -93,7 +93,7 @@
             placeholder: 'Confirm password',
             input_html: { autocomplete: "new-password", class: 'devise-form-input',
             data: { password_visibility_target: 'input'} } %>
-          <button type="button" data-action="password-visibility#toggle" class="text-gray-500 absolute top-[93%] bottom-0 right-10 min-[768px]:top-[70%] min-[375px]:right-12 min-[1024px]:top-[44%] min-[1024px]:right-16 min-[1100px]:top-[50%] min-[1100px]:right-20 pr-3 flex items-center cursor-pointer">
+          <button type="button" data-action="password-visibility#toggle" class="devise-eye-right">
               <span data-password-visibility-target="icon"><i class="fa-solid fa-eye"></i></span>
               <span data-password-visibility-target="icon" class="hidden"><i class="fa-solid fa-eye-slash"></i></span>
             </button>
