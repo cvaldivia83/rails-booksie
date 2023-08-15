@@ -4,7 +4,12 @@
     <div class="flex flex-wrap justify-center">
       <div class="w-full flex justify-center">
         <div class="relative">
-          <%= cl_image_tag @user.photo.key, crop: :fill, class: "shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]" %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, crop: :fill, class: "shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]" %>
+          <% else %>
+            <img src="https://res.cloudinary.com/dd7pbokmj/image/upload/v1692061321/camera-image_xxys0w.jpg" alt="camera-profile" class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px] w-36 h-36" data-navbar-target="avatar"
+            data-action="click->navbar#dropdown">
+          <% end %>
 
         </div>
       </div>
