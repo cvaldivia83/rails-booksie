@@ -17,13 +17,24 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/light-v11",
     });
+
+    this.#addMarkersToMap();
+    this.#fitMapToMarkers();
   }
 
   #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .addTo(this.map)
+    new mapboxgl.Marker()
+    .setLngLat([ this.markersValue.long, this.markersValue.lat ])
+    .addTo(this.map)
+  }
+
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+
+    bounds.extend([ this.markersValue.long, this.markersValue.lat ])
+
+    this.map.fitBounds(bounds, {
+      padding: 70, maxZoom: 15, duration: 0
     })
   }
 }

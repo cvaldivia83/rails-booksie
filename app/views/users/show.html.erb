@@ -1,5 +1,5 @@
   <!-- component -->
-<div class="relative max-w-md mx-auto md:max-w-5xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-24">
+<div class="relative max-w-md mx-auto md:max-w-5xl mt-6 min-w-0 break-words bg-white w-full mb-12 shadow-lg rounded-xl mt-24">
   <div class="px-6">
     <div class="flex flex-wrap justify-center">
       <div class="w-full flex justify-center">
@@ -10,70 +10,52 @@
             <img src="https://res.cloudinary.com/dd7pbokmj/image/upload/v1692061321/camera-image_xxys0w.jpg" alt="camera-profile" class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px] w-36 h-36" data-navbar-target="avatar"
             data-action="click->navbar#dropdown">
           <% end %>
-
         </div>
       </div>
-        <div class="w-full text-center mt-20">
-          <div class="flex justify-center lg:pt-4 pt-8 pb-0">
-            <div class="p-3 text-center">
-                <span class="text-xl font-bold block uppercase tracking-wide text-neutral-700"><%= @user.books.count %></span>
-                <span class="text-sm text-neutral-400">Books</span>
-            </div>
-            <div class="p-3 text-center">
-                <span class="text-xl font-bold block uppercase tracking-wide text-neutral-700">2,454</span>
-                <span class="text-sm text-neutral-400">Followers</span>
-            </div>
 
-            <div class="p-3 text-center">
-                <span class="text-xl font-bold block uppercase tracking-wide text-neutral-700">564</span>
-                <span class="text-sm text-neutral-400">Following</span>
-            </div>
+      <div class="w-full text-center mt-20">
+        <div class="flex justify-center lg:pt-4 pt-8 pb-0">
+          <div class="p-3 text-center">
+            <span class="text-xl font-bold block uppercase tracking-wide text-neutral-700"><%= @user.books.count %></span>
+            <span class="text-sm text-neutral-400">Books</span>
+          </div>
+
+          <div class="p-3 text-center">
+            <span class="text-xl font-bold block uppercase tracking-wide text-neutral-700">2,454</span>
+            <span class="text-sm text-neutral-400">Followers</span>
+          </div>
+
+          <div class="p-3 text-center">
+            <span class="text-xl font-bold block uppercase tracking-wide text-neutral-700">564</span>
+            <span class="text-sm text-neutral-400">Following</span>
+          </div>
+
           </div>
         </div>
-    </div>
+      </div>
+
     <div class="text-center mt-2">
       <h3 class="text-2xl text-neutral-700 font-bold leading-normal mb-1"><%= @user.username.capitalize %></h3>
       <div class="text-xs mt-0 mb-2 text-neutral-400 font-bold uppercase">
-          <i class="fas fa-map-marker-alt mr-2 text-neutral-400 opacity-75"></i><%= @user.city.capitalize %>, <%= @user.country.capitalize %>
+        <i class="fas fa-map-marker-alt mr-2 text-neutral-400 opacity-75"></i><%= @user.city.capitalize %>, <%= @user.country.capitalize %>
       </div>
 
-      <div id="map" data-controller="map"
+      <div id="map"
+      class="mt-6 mx-auto"
+      data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-
-      </div>
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      style="width: 70%; height: 300px;"></div>
     </div>
+
     <div class="mt-6 py-6 border-t border-neutral-200 text-center">
-        <div class="flex flex-wrap justify-center">
-            <div class="w-full px-4">
-                <p class="font-light leading-relaxed text-neutral-600 mb-4"><%= @user.bio %></p>
-                <a href="javascript:;" class="font-normal text-neutral-700 hover:text-neutral-400">Follow Account</a>
-            </div>
+      <div class="flex flex-wrap justify-center">
+        <div class="w-full px-4">
+          <p class="font-light leading-relaxed text-neutral-600 mb-4"><%= @user.bio %></p>
+          <a href="javascript:;" class="font-normal text-neutral-700 hover:text-neutral-400">Follow Account</a>
         </div>
-    </div>
-
-
-    <div class="mt-6 py-6 border-t border-neutral-200 text-center px-8">
-      <h2 class="text-2xl text-neutral-700 font-bold leading-normal mb-1">My Bookings</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        <% @user.bookings.each do |booking| %>
-          <div class="card flex justify-center items-center m-2">
-            <%= cl_image_tag wishlist.book.photo.key, height: 100, width: 60, crop: :fill, class: "rounded-md" %>
-            <div class="book-infos ms-4">
-              <h3 class="font-semibold text-neutral-600 whitespace-normal"><%= wishlist.book.title %></h3>
-              <p class="font-light leading-relaxed text-neutral-600 mb-4 text-left whitesh3ace-normal"><%= wishlist.book.author %></p>
-            </div>
-          </div>
-        <% end %>
       </div>
     </div>
 
-    <div class="mt-6 py-6 border-t border-neutral-200 text-center ">
-      <h2 class="text-2xl text-neutral-700 font-bold leading-normal mb-1">My Wishlist</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-
-      </div>
-    </div>
   </div>
 </div>
