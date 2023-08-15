@@ -39,6 +39,24 @@
 
         <%= f.input :photo, as: :file, label: false, input_html: {class: 'devise-file-input'} %>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <%= f.input :city,
+            required: true,
+            label: false,
+            placeholder: 'City',
+            autofocus: true,
+            input_html: { autocomplete: "city", class: 'devise-form-input' }%>
+
+          <%= f.input :country,
+            priority: ["BR"],
+            required: true,
+            label: false,
+            autofocus: true,
+            input_html: { autocomplete: "country", class: 'devise-form-input' }%>
+
+        </div>
+
         <%= f.input :address,
           required: true,
           label: false,

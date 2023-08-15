@@ -33,6 +33,9 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
+# Simple Form Country Select to allow country input
+gem 'country_select'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
