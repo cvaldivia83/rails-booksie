@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :friendships, only: %i[create index]
+
   resources :comments, only: %i[destroy edit update]
 end
