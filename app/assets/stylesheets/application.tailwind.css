@@ -245,12 +245,19 @@
   @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-16 px-24 flex justify-center items-center rounded-lg font-semibold text-2xl text-white
   }
 
-  .mapboxgl-popup {
-    @apply max-w-[12.5rem] p-2
+  .geocoding-card {
+    @apply p-1 mx-auto
   }
 
-  .mapboxgl-popup-content {
-    @apply text-center font-light text-xs text-neutral-500
+  .geocoding-username {
+    @apply font-semibold text-base
   }
 
+  .geocoding-address {
+    @apply text-sm text-neutral-700 font-light
+  }
+
+  .mapboxgl-popup-close-button {
+    @apply text-base mr-2 font-semibold pt-1 pr-2
+  }
 }
