@@ -52,7 +52,12 @@
       <div class="flex flex-wrap justify-center">
         <div class="w-full px-4">
           <p class="font-light leading-relaxed text-neutral-600 mb-4"><%= @user.bio %></p>
-          <a href="javascript:;" class="font-normal text-neutral-700 hover:text-neutral-400">Follow Account</a>
+
+          <% unless @user == current_user  %>
+            <%= button_to "Follow Account", friendships_path(method: :post), class: "font-normal text-neutral-700 hover:text-neutral-400" %>
+          <% else %>
+            <%= link_to "Edit Account", edit_user_registration_path, class: "font-normal text-neutral-700 hover:text-neutral-400"  %>
+          <% end %>
         </div>
       </div>
     </div>
