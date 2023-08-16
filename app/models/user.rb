@@ -11,4 +11,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   has_one_attached :photo
+
+  geocoded_by :get_address
+  after_validation :geocode, if: :will_save_change_to_address?
+
+  def get_address
+    [address, city, country].compact.join(', ')
+  end
 end

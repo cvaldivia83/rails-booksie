@@ -1,8 +1,16 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :super_booksie
+
   def show
     @user = User.find(params[:id])
     authorize @user
+    if @user.geocoded?
+      @markers = {
+        lat: @user.latitude,
+        long: @user.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {user: @user })
+      }
+    end
   end
 
   def super_booksie

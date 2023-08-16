@@ -13,6 +13,17 @@ Wishlist.destroy_all
 List.destroy_all
 Booking.destroy_all
 
+addresses = [
+  { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Visconde de Pirajá, 142' },
+  { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Aires Saldanha, 25' },
+  { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Carlos Oswald, 230' },
+  { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Ipanema, 75' },
+  { city: 'Macaé', country: 'Brasil', address: 'Avenida Nossa Senhora da Glória, 1121' },
+  { city: 'Arequipa', country: 'Peru', address: '11, Avenida Lambramani' },
+  { city: 'Saint-Denis', country: 'France', address: '15 Rue Génin' },
+  { city: 'Paris', country: 'France', address: "90 Avenue d'Italie" }
+]
+
 puts 'Starting to seed users'
 
 email = %w(carla milo patoche zippy kiki kiko mauro dedemenezes barbara juju)
@@ -36,9 +47,10 @@ portrait_men = [
 booksie = [true, false].sample
 
 10.times do |i|
+  new_address = addresses.sample
   if i == 0
     user = User.new(
-      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: true, super_booksie: true, bio: Faker::Quotes::Shakespeare.romeo_and_juliet_quote, address: "Rua Visconde de Piraja, 142"
+      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: true, super_booksie: true, bio: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}", address: new_address[:address], city: new_address[:city], country: new_address[:country]
     )
     portrait = URI.open(portrait_women[i])
     user.photo.attach(io: portrait, filename: "#{email[i]}.jpg", content_type: 'image/webp')
@@ -47,7 +59,7 @@ booksie = [true, false].sample
     puts "Created user n.#{i + 1}"
   else
     user = User.new(
-      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: false, bio: Faker::Quotes::Shakespeare.romeo_and_juliet_quote, address: "Rua Visconde de Piraja, 142"
+      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: false, bio: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}", address: new_address[:address], city: new_address[:city], country: new_address[:country]
     )
 
     if email[i] == "patoche" || email[i] == 'kiko' || email[i] == 'mauro' || email[i] == 'dedemenezes'

@@ -39,6 +39,24 @@
 
         <%= f.input :photo, as: :file, label: false, input_html: {class: 'devise-file-input'} %>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <%= f.input :city,
+            required: true,
+            label: false,
+            placeholder: 'City',
+            autofocus: true,
+            input_html: { autocomplete: "city", class: 'devise-form-input' }%>
+
+          <%= f.input :country,
+            priority: ["BR"],
+            required: true,
+            label: false,
+            autofocus: true,
+            input_html: { autocomplete: "country", class: 'devise-form-input' }%>
+
+        </div>
+
         <%= f.input :address,
           required: true,
           label: false,
@@ -62,7 +80,7 @@
             hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
             input_html: { autocomplete: "new-password", class: 'devise-form-input',
             data: { password_visibility_target: 'input'} } %>
-            <button type="button" data-action="password-visibility#toggle" class="text-gray-500 absolute top-[54%] bottom-0 right-10 min-[768px]:top-[70%] min-[768px]:right-[25%] min-[375px]:right-12 min-[1024px]:top-[44%] min-[1100px]:top-[7%] pr-3 flex items-center cursor-pointer">
+            <button type="button" data-action="password-visibility#toggle" class="devise-eye-left">
               <span data-password-visibility-target="icon"><i class="fa-solid fa-eye"></i></span>
               <span data-password-visibility-target="icon" class="hidden"><i class="fa-solid fa-eye-slash"></i></span>
             </button>
@@ -75,7 +93,7 @@
             placeholder: 'Confirm password',
             input_html: { autocomplete: "new-password", class: 'devise-form-input',
             data: { password_visibility_target: 'input'} } %>
-          <button type="button" data-action="password-visibility#toggle" class="text-gray-500 absolute top-[93%] bottom-0 right-10 min-[768px]:top-[70%] min-[375px]:right-12 min-[1024px]:top-[44%] min-[1024px]:right-16 min-[1100px]:top-[7%] min-[1100px]:right-20 pr-3 flex items-center cursor-pointer">
+          <button type="button" data-action="password-visibility#toggle" class="devise-eye-right">
               <span data-password-visibility-target="icon"><i class="fa-solid fa-eye"></i></span>
               <span data-password-visibility-target="icon" class="hidden"><i class="fa-solid fa-eye-slash"></i></span>
             </button>
