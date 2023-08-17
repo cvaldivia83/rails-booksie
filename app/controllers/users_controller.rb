@@ -11,6 +11,14 @@ class UsersController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {user: @user })
       }
     end
+
+    # Friendship - Destroy
+    @friends = Friendship.where(asker: current_user, receiver: @user).or(Friendship.where(receiver: current_user, asker_id: @user))
+
+    # button_to friendship
+    @friendship = Friendship.new(asker: current_user, receiver: @user)
+    authorize @friendship
+    @friendship.save
   end
 
   def super_booksie
