@@ -59,7 +59,11 @@
               <%= button_to "Follow Account", friendships_path, remote: true, class: "font-normal text-neutral-700 hover:text-neutral-400" %>
             <% end %>
           <% else %>
-            <%= link_to "Unfollow Account", friendship_path()  %>
+
+            <%= link_to 'Unfollow Account',
+            friendship_path, class: "font-normal text-neutral-700 hover:text-neutral-400",
+            data: {turbo_method: :delete,
+            turbo_confirm: 'Are you sure?'} %>
           <% end %>
 
 

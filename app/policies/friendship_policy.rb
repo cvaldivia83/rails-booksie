@@ -13,4 +13,8 @@ class FriendshipPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def destroy?
+    record.asker == user || record.receiver == user
+  end
 end
