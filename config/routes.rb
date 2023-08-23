@@ -31,6 +31,10 @@ Rails.application.routes.draw do
     collection do
       get :followers
     end
+
+    collection do
+      get :followings
+    end
   end
 
   resources :comments, only: %i[destroy edit update]

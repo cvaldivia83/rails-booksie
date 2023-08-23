@@ -13,4 +13,8 @@ class FriendshipsController < ApplicationController
   def followers
     @followers = Friendship.where(receiver: current_user)
   end
+
+  def followings
+    @followings = Friendship.where(asker: current_user)
+  end
 end
