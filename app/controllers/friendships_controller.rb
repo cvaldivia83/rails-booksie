@@ -9,4 +9,8 @@ class FriendshipsController < ApplicationController
     @friendship.destroy
     redirect_to user_path(@user)
   end
+
+  def followers
+    @followers = Friendship.where(receiver: current_user)
+  end
 end
