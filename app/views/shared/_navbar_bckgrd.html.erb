@@ -21,7 +21,7 @@
       <%# Dropdown Menu Signed In %>
 
       <div class="navbar-menu hidden mt-52" data-navbar-target="menu" id="menu">
-        <%= link_to "Profile", user_path(@user), class: "navbar-menu_item" %>
+        <%= link_to "Profile", user_path(current_user), class: "navbar-menu_item" %>
         <%= link_to "My Books", user_path(@user), class: "navbar-menu_item" %>
         <%= link_to "Reservations", user_path(@user), class: "navbar-menu_item" %>
         <%= link_to "Wishlist", lists_path, class: "navbar-menu_item" %>

@@ -4,10 +4,9 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @friendship = Friendship.where(asker: current_user, receiver: @user).or(Friendship.where(receiver: current_user, asker: @user)).first
+    @friendship = Friendship.find(params[:id])
     authorize @friendship
     @friendship.destroy
+    redirect_to user_path(@user)
   end
-
 end

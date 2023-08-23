@@ -13,8 +13,9 @@ class UsersController < ApplicationController
     end
 
     # Friendship - Destroy
-    @friends = Friendship.where(asker: current_user, receiver: @user).or(Friendship.where(receiver: current_user, asker: @user)).first
-    # button_to friendship
+    @friends = Friendship.find_by(asker: current_user, receiver: @user) || Friendship.find_by(asker: @user, receiver: current_user)
+
+    # Friendship - Create
     @friendship = Friendship.new(asker: current_user, receiver: @user)
     authorize @friendship
     @friendship.save
