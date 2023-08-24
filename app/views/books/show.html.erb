@@ -29,12 +29,22 @@
           <span class="text-xs font-bold"><%= @book.isbn %> </span>
         </div>
       </div>
+
+      <%= link_to user_path(@book.user) do %>
+        <div class="user_owner flex items-center">
+
+          <%= cl_image_tag @book.user.photo.key, crop: :fill, class: "navbar-avatar mr-4" %>
+
+          <p class="text-2xl text-neutral-700 font-bold leading-normal mb-1"><%= @book.user.username %></p>
+
+        </div>
+      <% end %>
     </div>
   </div>
 
-<%= turbo_frame_tag "book_booking" do %>
-    <%= render 'shared/btn_actions', wishlist: @wishlist, book: @book %>
-<% end  %>
+  <%= turbo_frame_tag "book_booking" do %>
+      <%= render 'shared/btn_actions', wishlist: @wishlist, book: @book %>
+  <% end  %>
 
 
 

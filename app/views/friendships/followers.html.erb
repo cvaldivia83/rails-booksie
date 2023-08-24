@@ -1,0 +1,19 @@
+<div class="regular-container">
+  <h1 class="main-title">All followers</h1>
+
+  <div class="w-1/2 mx-auto my-8">
+    <% @followers.each do |friendship| %>
+      <div class="flex justify-around items-center ">
+        <div class="flex items-center p-2 mb-2 w-52">
+          <%= cl_image_tag friendship.asker.photo.key, crop: :fill, class: "navbar-avatar" %>
+          <h2 class="main-subtitle mt-0 mx-2"><%= friendship.asker.username %></h2>
+        </div>
+        <%= link_to 'Unfollow Account',
+          friendship_path(friendship), class: "btn-violet-outlined",
+          data: {turbo_method: :delete,
+          turbo_confirm: 'Are you sure?'} %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

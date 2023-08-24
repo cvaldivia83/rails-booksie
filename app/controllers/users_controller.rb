@@ -11,6 +11,9 @@ class UsersController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {user: @user })
       }
     end
+
+    # Friendship - Check if friendship exists
+    @friends = Friendship.find_by(asker: current_user, receiver: @user).blank? ? Friendship.find_by(asker: @user, receiver: current_user) : Friendship.find_by(asker: current_user, receiver: @user)
   end
 
   def super_booksie
