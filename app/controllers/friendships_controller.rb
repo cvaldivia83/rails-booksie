@@ -7,7 +7,9 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.find(params[:id])
     authorize @friendship
     @friendship.destroy
-    redirect_to user_path(@user)
+    respond_to do |format|
+      format.js { render inline: "location.reload();" }
+    end
   end
 
   def followers

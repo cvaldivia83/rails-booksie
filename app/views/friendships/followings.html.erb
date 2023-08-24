@@ -8,7 +8,10 @@
           <%= cl_image_tag friendship.receiver.photo.key, crop: :fill, class: "navbar-avatar" %>
           <h2 class="main-subtitle mt-0 mx-2"><%= friendship.receiver.username %></h2>
         </div>
-        <%= link_to "Unfollow Account", friendship_path(friendship), class: "btn-violet-outlined"  %>
+        <%= link_to 'Unfollow Account',
+          friendship_path(friendship), class: "btn-violet-outlined",
+          data: {turbo_method: :delete,
+          turbo_confirm: 'Are you sure?'} %>
       </div>
     <% end %>
   </div>
