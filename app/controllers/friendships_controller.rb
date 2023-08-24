@@ -11,10 +11,12 @@ class FriendshipsController < ApplicationController
   end
 
   def followers
-    @followers = Friendship.where(receiver: current_user)
+    @followers = current_user.friendships_as_receiver
+    authorize @followers
   end
 
   def followings
-    @followings = Friendship.where(asker: current_user)
+    @followings = current_user.friendships_as_asker
+    authorize @followings
   end
 end
