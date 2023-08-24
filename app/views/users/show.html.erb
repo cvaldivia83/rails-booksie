@@ -62,8 +62,8 @@
                <%= link_to "Edit Account", edit_user_registration_path, class: "font-normal text-neutral-700 hover:text-neutral-400"  %>
             <% else %>
 
-              <% if Friendship.find_by(asker: current_user, receiver: @user).blank? && Friendship.find_by(asker: @user, receiver: current_user).blank? %>
-                <%= button_to "Follow Account", friendships_path, remote: true, class: "font-normal text-neutral-700 hover:text-neutral-400" %>
+              <% if @friends.blank? %>
+                <%= button_to "Follow Account", { :controller => "friendships", :action => "create", :user_id => @user.id },  remote: true, class: "font-normal text-neutral-700 hover:text-neutral-400" %>
               <% else %>
                 <%= link_to 'Unfollow Account',
                 friendship_path(@friends), class: "font-normal text-neutral-700 hover:text-neutral-400",

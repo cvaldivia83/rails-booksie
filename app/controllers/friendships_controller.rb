@@ -3,6 +3,16 @@ class FriendshipsController < ApplicationController
     @friendships = policy_scope(Friendship)
   end
 
+  def create
+    @friendship = Friendship.new(asker: current_user, receiver_id: params[:user_id].to_i)
+    authorize @friendship
+    @friendship.save
+    respond_to do |format|
+      format.js { render inline: "location.reload();" }
+    end
+  end
+
+
   def destroy
     @friendship = Friendship.find(params[:id])
     authorize @friendship
