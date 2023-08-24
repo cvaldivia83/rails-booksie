@@ -21,13 +21,17 @@
           </div>
 
           <div class="p-3 text-center">
-            <span class="text-xl font-bold block uppercase tracking-wide text-neutral-700">2,454</span>
-            <span class="text-sm text-neutral-400">Followers</span>
+            <%= link_to followers_friendships_path do %>
+              <span class="text-xl font-bold block uppercase tracking-wide text-neutral-700">2,454</span>
+              <span class="text-sm text-neutral-400">Followers</span>
+            <% end %>
           </div>
 
           <div class="p-3 text-center">
-            <span class="text-xl font-bold block uppercase tracking-wide text-neutral-700">564</span>
-            <span class="text-sm text-neutral-400">Following</span>
+            <%= link_to followings_friendships_path do  %>
+              <span class="text-xl font-bold block uppercase tracking-wide text-neutral-700">564</span>
+              <span class="text-sm text-neutral-400">Following</span>
+            <% end %>
           </div>
 
           </div>
