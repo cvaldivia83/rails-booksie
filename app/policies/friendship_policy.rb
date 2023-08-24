@@ -6,6 +6,14 @@ class FriendshipPolicy < ApplicationPolicy
     end
   end
 
+  def followers?
+    true
+  end
+
+  def followings?
+    true
+  end
+
   def show?
     true
   end
@@ -17,4 +25,8 @@ class FriendshipPolicy < ApplicationPolicy
   def destroy?
     record.asker == user || record.receiver == user
   end
+
+  # def followers?
+  #   record.receiver == user
+  # end
 end
