@@ -1,7 +1,17 @@
-<h1>All posts</h1>
+<div class="regular-container">
+  <h1 class="main-title">Booksie<span class="text-violet-400">Blog</span></h1>
 
-<% @posts.each do |post| %>
-  <div class="post-card">
-    <%= link_to post.title, post_path(post) %>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <% @posts.each do |post| %>
+      <div class="post-card">
+        <div class="post-card__img">
+        </div>
+        <%= link_to post_path(post) do %>
+          <%= sanitize post.title %>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
-<% end %>
+
+</div>
