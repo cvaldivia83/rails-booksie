@@ -1,14 +1,14 @@
 <div class="regular-container">
-  <h1 class="main-title"><%= @post.title %></h1>
-  <div class="flex justify-center mt-2">
-    <h2 class="book-card_title mr-4 text-violet-700">Booksie: <%= @post.author %></h2>
+  <h1 class="main-title"><%= strip_tags(@post.title) %></h1>
+  <div class="flex justify-center my-4 md:my-16">
+    <h2 class="book-card_title mr-4 text-violet-700">Booksie: <%= @post.user.username %></h2>
 
     <p class="book-card_subtitle">Posted: <%= @post.date.strftime("%d/%m/%Y")  %></p>
 
   </div>
 
 
-  <p class="mt-16 md-paragraph"><%= @post.content %></p>
+  <%=  @post.content.html_safe %>
 
   <div class="comments mt-16">
 
