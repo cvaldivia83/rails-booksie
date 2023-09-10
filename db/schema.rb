@@ -101,8 +101,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_16_010956) do
     t.string "author"
     t.text "content"
     t.datetime "date"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -156,6 +158,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_16_010956) do
   add_foreign_key "friendships", "users", column: "asker_id"
   add_foreign_key "friendships", "users", column: "receiver_id"
   add_foreign_key "lists", "users"
+  add_foreign_key "posts", "users"
   add_foreign_key "ratings", "books"
   add_foreign_key "ratings", "users"
   add_foreign_key "wishlists", "books"
