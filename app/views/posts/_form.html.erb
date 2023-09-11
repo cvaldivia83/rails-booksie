@@ -6,8 +6,13 @@
     <div class="m-4">
       <%= f.input :content, label: false, input_html: { class: "devise-form-input"} %>
     </div>
+
     <div class="m-4">
       <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "start" }, class: "devise-form-input" }, label: false, placeholder: "Pick a Date To Start Writing" %>
+    </div>
+
+    <div class="m-4">
+      <%= f.input :photo, as: :file, label: false, input_html: { class: "devise-file-input" } %>
     </div>
 
     <div class="m-4">
