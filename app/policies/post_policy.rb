@@ -13,4 +13,8 @@ class PostPolicy < ApplicationPolicy
   def new?
     user.admin == true
   end
+
+  def create?
+    new?
+  end
 end
