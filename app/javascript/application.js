@@ -9,3 +9,5 @@ import PasswordVisibility from "stimulus-password-visibility";
 Stimulus.register("notification", Notification);
 
 Stimulus.register("password-visibility", PasswordVisibility);
+import "trix"
+import "@rails/actiontext"
