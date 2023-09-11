@@ -260,5 +260,11 @@
   .mapboxgl-popup-close-button {
     @apply text-base mr-2 font-semibold pt-1 pr-2
   }
+
+  /* Trix  */
+
+  .trix-content {
+    @apply bg-neutral-100 border-none focus:ring-2 focus:ring-neutral-300 mt-4 text-sm text-neutral-500 w-full rounded h-32
+  }
 }
 @import 'actiontext.css';
