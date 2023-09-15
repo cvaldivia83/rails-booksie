@@ -1,2 +1,7 @@
 @import './_super_booksie_index.css';
 @import './_flatpickr.css';
+
+
+.text-shadow {
+  text-shadow: 2px 2px 2px rgb(50, 50, 50);
+}

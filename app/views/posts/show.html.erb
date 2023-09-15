@@ -8,7 +8,9 @@
   </div>
 
 
-  <%=  @post.content.html_safe %>
+  <div class="trix-content">
+    <%=  @post.rich_content %>
+  </div>
 
   <div class="comments mt-16">
 

@@ -23,3 +23,11 @@
  @import './pages/index.css';
 
  /* Import components */
+
+
+.polka {
+  background-color: #FFF;
+  opacity: 0.8;
+  background-image: radial-gradient(#ddd6fe 1.85px, #FFF 1.85px);
+  background-size: 37px 37px;
+}
