@@ -1,29 +1,21 @@
 <div class="regular-container">
-  <h1 class="main-title"><%= @post.title %></h1>
-  <div class="flex justify-center mt-2">
-    <h2 class="book-card_title mr-4 text-violet-700">Booksie: <%= @post.author %></h2>
+  <h1 class="main-title"><%= strip_tags(@post.title) %></h1>
+  <div class="flex justify-center my-4 md:my-16">
+    <h2 class="book-card_title mr-4 text-violet-700">Booksie: <%= @post.user.username %></h2>
 
     <p class="book-card_subtitle">Posted: <%= @post.date.strftime("%d/%m/%Y")  %></p>
 
   </div>
 
+  <%=  @post.rich_content %>
 
-  <p class="mt-16 md-paragraph"><%= @post.content %></p>
+  <div class="comments" data-controller="character-counter">
+    <span class="md-paragraph">Let's start a talk:</span> <span class="md-paragraph text-violet-500">leave a review</span>
 
-  <div class="comments mt-16">
-
-    <h2 class="book-card_title text-center my-8">Share your thoughts: leave a review!</h2>
-
-    <div data-controller="insert-comment" data-insert-comment-position-value="beforeend">
-      <%= render 'comments/form', post: @post, comment: @comment %>
-
-      <div data-insert-comment-target="items">
-        <% @post.comments.each do |comment| %>
-          <%= render 'comments/comment', comment: comment %>
-        <% end %>
-      </div>
-    </div>
-
+    <%= render 'comments/form', post: @post, comment: @comment %>
   </div>
+
+
+
 
 </div>

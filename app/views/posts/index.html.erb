@@ -1,7 +1,19 @@
-<h1>All posts</h1>
+<div class="polka">
+  <div class="regular-container">
+  <h1 class="main-title">Booksie<span class="text-violet-500">Blog</span></h1>
 
-<% @posts.each do |post| %>
-  <div class="post-card">
-    <%= link_to post.title, post_path(post) %>
+  <% if current_user && current_user.admin %>
+    <div class="text-right m-8">
+      <%= link_to "New Post", new_post_path, class: 'btn-violet-solid'  %>
+    </div>
+  <% end %>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-16 my-16">
+    <% @posts.each do |post| %>
+      <%= render 'posts/post_card', post: post %>
+    <% end %>
   </div>
-<% end %>
+
+</div>
+
+</div>

@@ -9,4 +9,16 @@ class PostPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def new?
+    user.admin == true
+  end
+
+  def create?
+    new?
+  end
+
+  def destroy?
+    user.admin == true
+  end
 end

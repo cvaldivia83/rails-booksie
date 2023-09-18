@@ -1,0 +1,18 @@
+<div class="post-card">
+
+  <%= link_to post_path(post) do  %>
+    <div class="h-56 rounded-lg flex justify-center items-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(' <%= cl_image_path post.photo.key %> ')">
+
+      <h1 class="text-white font-semibold text-center text-xl text-shadow"><%= post.title %></h1>
+    </div>
+  <% end %>
+
+  <% if current_user.admin %>
+    <%= link_to post_path(post),
+    data: {turbo_method: :delete,
+    turbo_confirm: 'Are you sure?'},
+    class: "text-end" do %>
+    <p class="text-violet-500 text-end mt-2 mr-2 rounded-lg"><i class="fa-solid fa-trash"></i></p>
+    <% end %>
+  <% end %>
+</div>

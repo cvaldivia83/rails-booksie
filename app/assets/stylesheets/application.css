@@ -14,6 +14,9 @@
  *= require_self
  */
 
+ /* Import External Libraries */
+@import "trix/dist/trix";
+@import './actiontext.css';
 
 /* Import pages */
 
