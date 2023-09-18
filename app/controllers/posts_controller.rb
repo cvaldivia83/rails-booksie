@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show]
+  before_action :set_post, only: %i[show destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -25,6 +25,12 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    authorize @post
+    @post.destroy
+    redirect_to action: :index
   end
 
   private

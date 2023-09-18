@@ -3,8 +3,13 @@
     <div class="m-4">
       <%= f.input :title, placeholder: "What's the post title?", label: false, input_html: { class: "devise-form-input" } %>
     </div>
-    <div class="m-4">
-      <%= f.rich_text_area :rich_content, label: false, placeholder: "We are the music makers, and we are the dreamers of dreams.", class: "overflow-scroll" %>
+    <div class="m-4" data-controller="character-counter">
+      <%= f.rich_text_area :rich_content,
+        label: false,
+        placeholder: "We are the music makers, and we are the dreamers of dreams.",
+        class: "post-content devise-form-input",
+        data: { character_counter_target: "input" }%>
+      <p class="small-paragraph">You wrote <strong data-character-counter-target="counter" class="text-violet-500"></strong> characters.</p>
     </div>
 
     <div class="m-4">

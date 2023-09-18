@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :wishlists, only: %i[index new create destroy]
 
-  resources :posts, only: %i[index show new create] do
+  resources :posts, only: %i[index show new create destroy] do
     resources :comments, only: %i[new create]
   end
 

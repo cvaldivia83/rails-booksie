@@ -1,6 +1,8 @@
 <%= simple_form_for([post, comment], data: {insert_comment_target: "form", action: "submit->insert-comment#send"}) do |f| %>
   <%= f.input :content,
-      input_html: { class: 'search-input p-4' }, label: false  %>
+      input_html: { class: 'search-input p-4', data: { character_counter_target: "input" } }, label: false  %>
+  <p class="small-paragraph">You wrote <strong data-character-counter-target="counter" class="text-violet-500"></strong> characters.</p>
+
   <%= f.submit "Submit review", class: "btn-violet-outlined w-full"
       %>
 <% end %>
