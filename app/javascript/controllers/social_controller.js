@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "commentBtn", "commentForm" ]
   connect() {
-    console.log(this.commentFormTarget);
+    // console.log(this.commentFormTarget);
   }
 
   openComment(event) {

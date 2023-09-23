@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["infos", "form", "card"]
   connect() {
-    // console.log(this.cardTarget);
+    console.log(this.cardTarget);
   }
   displayForm(event) {
     this.infosTarget.classList.add("hidden");
