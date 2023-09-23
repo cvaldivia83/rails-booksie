@@ -2,7 +2,89 @@ require 'json'
 require 'open-uri'
 require 'faker'
 
-puts 'Destroying all books and users from DB'
+
+users = [
+  {
+    email: 'carla',
+    username: 'queen_c',
+    admin: true,
+    address: { city: 'Arequipa', country: 'Peru', address: '11, Avenida Lambramani' },
+    picture: 'https://newprofilepic2.photo-cdn.net//assets/images/article/profile.webp'
+  },
+  {
+    email: 'milo',
+    username: 'miloinrio',
+    admin: false,
+    address: { city: 'Paris', country: 'France', address: "90 Avenue d'Italie" },
+    picture: 'https://cdn.pixabay.com/photo/2017/01/27/16/09/people-2013447_1280.jpg'
+  },
+  {
+    email: 'patrick',
+    username: 'patoche',
+    admin: false,
+    address: { city: 'Macaé', country: 'Brasil', address: 'Avenida Nossa Senhora da Glória, 1121' },
+    picture: 'https://img.freepik.com/free-psd/3d-illustration-business-man-with-glasses_23-2149436194.jpg?w=826&t=st=1680627693~exp=1680628293~hmac=90e16d055b5f2ee28553a29e034832bacccbcce8f6b63ab303ba687b2f803b05'
+  },
+  {
+    email: 'zippora',
+    username: 'zippy',
+    admin: false,
+    address: { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Visconde de Pirajá, 8' },
+    picture: 'https://cdn.pixabay.com/photo/2021/11/12/03/04/woman-6787784_1280.png'
+  },
+  {
+    email: 'kiki',
+    username: 'kiki',
+    admin: false,
+    address: { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Aires Saldanha, 25' },
+    picture: 'https://cdn.pixabay.com/photo/2019/05/04/15/24/woman-4178302_1280.jpg'
+  },
+  {
+    email: 'kiko',
+    username: 'kiko',
+    admin: false,
+    address: { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Aires Saldanha, 25' },
+    picture: 'https://img.freepik.com/free-vector/mysterious-gangster-character_23-2148483453.jpg?w=826&t=st=1680627737~exp=1680628337~hmac=20d165d960a99cfb4fc0a21a8f45c45d45668212e2dc03e24607343aa269a9aa'
+  },
+  {
+    email: 'mauricio',
+    username: 'mauro',
+    admin: false,
+    address: { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Ipanema, 75' },
+    picture: 'https://img.freepik.com/free-vector/mysterious-gangster-character_23-2148483453.jpg?w=826&t=st=1680627737~exp=1680628337~hmac=20d165d960a99cfb4fc0a21a8f45c45d45668212e2dc03e24607343aa269a9aa'
+  },
+  {
+    email: 'dedemenezes',
+    username: 'djDede',
+    admin: false,
+    address: { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Visconde de Pirajá, 142' },
+    picture: 'https://img.freepik.com/free-vector/mysterious-gangster-character_23-2148466806.jpg?w=826&t=st=1680627776~exp=1680628376~hmac=97c984caa04e26bc85263e44657c73bb398f50d751b275c2dd132b2b1062d223'
+  },
+  {
+    email: 'barbara',
+    username: 'barbie',
+    admin: false,
+    address: { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Visconde de Pirajá, 142' },
+    picture: 'https://cdn.pixabay.com/photo/2021/04/07/17/01/woman-6159648_1280.jpg'
+  },
+  {
+    email: 'juju',
+    username: 'juju',
+    admin: false,
+    address: { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Carlos Oswald, 230' },
+    picture: 'https://cdn.pixabay.com/photo/2018/03/12/12/32/woman-3219507_1280.jpg'
+  },
+  {
+    email: 'sabilah',
+    username: 'sabs',
+    admin: false,
+    address: { city: 'Saint-Denis', country: 'France', address: '15 Rue Génin' },
+    picture: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80'
+  }
+]
+
+
+puts 'Destroying all records from DB'
 
 User.destroy_all
 Rating.destroy_all
@@ -13,78 +95,46 @@ Wishlist.destroy_all
 List.destroy_all
 Booking.destroy_all
 
-addresses = [
-  { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Visconde de Pirajá, 142' },
-  { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Aires Saldanha, 25' },
-  { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Carlos Oswald, 230' },
-  { city: 'Rio de Janeiro', country: 'Brasil', address: 'Rua Ipanema, 75' },
-  { city: 'Macaé', country: 'Brasil', address: 'Avenida Nossa Senhora da Glória, 1121' },
-  { city: 'Arequipa', country: 'Peru', address: '11, Avenida Lambramani' },
-  { city: 'Saint-Denis', country: 'France', address: '15 Rue Génin' },
-  { city: 'Paris', country: 'France', address: "90 Avenue d'Italie" }
-]
+puts 'Creating users...'
 
-puts 'Starting to seed users'
 
-email = %w(carla milo patoche zippy kiki kiko mauro dedemenezes barbara juju)
+users.each_with_index do |user, i|
 
-username = %w(queen_c miloinrio patoche zippy kiki kiko mauro djDedeMenezes barbie juju)
+  new_user = User.new(
+    email: "#{user[:email]}@lewagon.com",
+    password: 123456,
+    username: "#{user[:username]}",
+    admin: user[:admin],
+    super_booksie: false,
+    bio: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}", address: user[:address][:address],
+    city: user[:address][:city],
+    country: user[:address][:country]
+  )
 
-portrait_women = [
-  'https://newprofilepic2.photo-cdn.net//assets/images/article/profile.webp',
-  'https://cdn.pixabay.com/photo/2021/11/12/03/04/woman-6787784_1280.png',
-  'https://cdn.pixabay.com/photo/2017/01/27/16/09/people-2013447_1280.jpg',
-  'https://cdn.pixabay.com/photo/2015/11/03/10/23/watercolor-1020509_1280.jpg',
-  'https://cdn.pixabay.com/photo/2021/04/07/17/01/woman-6159648_1280.jpg',
-  'https://cdn.pixabay.com/photo/2019/05/04/15/24/woman-4178302_1280.jpg', 'https://img.freepik.com/free-photo/shallow-focus-shot-african-american-female-with-tattoos-wearing-purple-shirt-sunglasses_181624-41271.jpg?w=1380&t=st=1680627915~exp=1680628515~hmac=265a714a169c0c5a010416cb5e1a7765c79290c7c3c1d8a33bcc2253d6ada71b'
-]
+  file = URI.open(user[:picture])
 
-portrait_men = [
-  'https://img.freepik.com/free-vector/mysterious-gangster-mafia-character-smoking_23-2148474614.jpg?w=826&t=st=1680627610~exp=1680628210~hmac=85ef56af802c2fc8939728a6813e0aeea7c3efd78cdeae169f1812b266506760',
-  'https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=826&t=st=1680627628~exp=1680628228~hmac=b3d61a90434027d819229efc5f22467a30dac70a1ba939a2c2cabd9f7ee379e7', 'https://img.freepik.com/free-psd/3d-illustration-business-man-with-glasses_23-2149436194.jpg?w=826&t=st=1680627693~exp=1680628293~hmac=90e16d055b5f2ee28553a29e034832bacccbcce8f6b63ab303ba687b2f803b05', 'https://img.freepik.com/free-vector/mysterious-gangster-character_23-2148483453.jpg?w=826&t=st=1680627737~exp=1680628337~hmac=20d165d960a99cfb4fc0a21a8f45c45d45668212e2dc03e24607343aa269a9aa', 'https://img.freepik.com/free-vector/mysterious-gangster-character_23-2148466806.jpg?w=826&t=st=1680627776~exp=1680628376~hmac=97c984caa04e26bc85263e44657c73bb398f50d751b275c2dd132b2b1062d223'
-]
+  new_user.photo.attach(io: file, filename: "#{user[:username]}.jpg", content_type: 'image/jpg')
 
-booksie = [true, false].sample
+  new_user.save!
 
-10.times do |i|
-  new_address = addresses.sample
-  if i == 0
-    user = User.new(
-      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: true, super_booksie: true, bio: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}", address: new_address[:address], city: new_address[:city], country: new_address[:country]
-    )
-    portrait = URI.open(portrait_women[i])
-    user.photo.attach(io: portrait, filename: "#{email[i]}.jpg", content_type: 'image/webp')
-    user.save!
+  puts "Created user n.#{i + 1}"
 
-    puts "Created user n.#{i + 1}"
-  else
-    user = User.new(
-      email: "#{email[i]}@lewagon.com", password: 123456, username: "#{username[i]}", admin: false, bio: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}", address: new_address[:address], city: new_address[:city], country: new_address[:country]
-    )
-
-    if email[i] == "patoche" || email[i] == 'kiko' || email[i] == 'mauro' || email[i] == 'dedemenezes'
-      portrait = URI.open(portrait_men.sample)
-    else
-      portrait = URI.open(portrait_women[2..10].sample)
-    end
-    user.photo.attach(io: portrait, filename: "#{email[i]}.jpg", content_type: 'image/jpg')
-    user.save!
-    puts "Created user n.#{i + 1}"
-  end
 end
 
-# creating books
+puts 'Finished seeding users'
+
+# books
 
 users = User.all
 
-# Retrieve a specific volume from Google's Book API
-book_ids = ['EezJAwAAQBAJ', 'vU-FAAAAQBAJ', 'ss4RngEACAAJ', 'hHCKDwAAQBAJ', '7cibSgAACAAJ', '5KlizgEACAAJ', 'Xk_YAAAAMAAJ', 'upb5DwAAQBAJ', 'dMBZjwEACAAJ', 'frx1jwEACAAJ', '7ERzDwAAQBAJ', 'gIGUEAAAQBAJ' ]
+books = ['EezJAwAAQBAJ', 'vU-FAAAAQBAJ', 'ss4RngEACAAJ', 'hHCKDwAAQBAJ', '7cibSgAACAAJ', '5KlizgEACAAJ', 'Xk_YAAAAMAAJ', 'upb5DwAAQBAJ', 'dMBZjwEACAAJ', 'frx1jwEACAAJ', '7ERzDwAAQBAJ', 'gIGUEAAAQBAJ' ]
 
-google_api = ENV['GOOGLE_BOOKS']
 
 puts 'Starting to seed books'
 
-book_ids.each_with_index do |book, index|
+google_api = ENV['GOOGLE_BOOKS']
+
+books.each_with_index do |book, index|
   url = "https://www.googleapis.com/books/v1/volumes/#{book}?key=#{google_api}"
   book_serialized = URI.open(url).read
   book = JSON.parse(book_serialized)
@@ -112,49 +162,24 @@ book_ids.each_with_index do |book, index|
   puts "Created Book number #{index + 1} * RATING"
 end
 
-puts "Seeded #{book_ids.length} books!"
+puts "Seeded #{books.length} books!"
 
-puts 'Creating Posts...'
+puts 'Seeding posts'
 
 post = Post.new(
-  title: 'Readers\' Most Anticipated Books of April',
-  content: "At the beginning of each calendar month, Goodreads\' crack editorial squad assembles a list of the best, hottest, and most popular new books hitting shelves, actual and virtual. The list is generated by readers\' early reviews and by tracking which titles are being added to Want to Read shelves by Goodreads regulars.\n
-  New in April: Sally Hepworth investigates a rash of Australian suicides in The Soulmate. Brendan Slocumb uncovers a musical conspiracy in Symphony of Secrets.\n And V. Castro explores ghostly Mexican mythology in The Haunting of Alejandra.\n Also on tap: conflicted androids, creepy beauty boutiques, and a new novel from historical fiction ace Charles Frazier.",
-  date: Date.new(2022, 12, 27),
-  user_id: User.first.id
+  title: 'Gerda Lerner\'s Work and History',
+  rich_content: '"The Creation of Patriarchy" by historian Gerda Lerner is a work of scholarship which was eight years in the making. In the book, in order to explain women\'s subordination Gerda puts it in a historical context.
+  Lerner\'s work gives insights into how women have been systematically subordinated over centuries of creation of the structures of patriarchy. These structures kept women in inferior positions, tied them to norms which they -apparently- willingly conformed to. The book and its findings are based on the study of western civilizations, largely derived from Mesopotamian, and Hebrew sources and a study of Abrahmanic religions.
+  Man has been the default human now, for centuries. Patriarchal thinking and its norms are so deeply entrenched in our society that we take it for granted. This default and so much part of our cultural and mental landscape, we do not even notice it. Not unlike the furniture strewn around your home for months, in the same position. You notice a particular piece only when you move it around into a new arrangement.
+  Historical scholarship has seen women as marginal to the making of civilization and as unessential to those pursuits defined as having historic significance. While no man has been excluded from historic records because he is man, yet all women were. Though numerically, women are the majority, we are structured as if we are the minority and and have therefore been victimized by it. Women were essential to creating history, to creating society. They are and always have been agents and actors in history. Women have simply been kept from knowing their history and from interpreting it. They have been excluded from writing symbols, philosophies, science and law, and excluded from theory formation. Gerda explores how, as laws evolved and religions grew, women\'s inferior position in society deteriorated. They were kept away from any learning or intellectual pursuits. She tells us how the lack of women\'s access to learning and religion was increasingly reduced, till their eventual cutting off from all sources of history making.',
+  date: Date.today,
+  user: User.first
 )
 
-file = URI.open("https://images.pexels.com/photos/3747468/pexels-photo-3747468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+picture = URI.open('https://miro.medium.com/v2/resize:fit:1400/format:webp/1*7-PGFpd3V-jP3701iAjAxg.jpeg')
 
-post.photo.attach(io: file, filename: "post_1.jpg", content_type: "image/jpg")
+post.photo.attach(io: picture, filename: "nes.png", content_type: "image/png")
 
 post.save!
 
-post_two = Post.create!(
-  title: "<h1>This is just a test for a title</h1>",
-  content: "<p>For most people, trekking through the mountains or sampling French cuisine is a rare treat. For travel writers, it might just be another day on the job. As their job title suggests, travel writers create content about anything and everything related to exploring the world. </p><p>Whether they’re writing to help readers plan a trip or to transport them — through words — to places they may never visit, no two travel writers share the same journey through their careers. But if you intend to walk down this road and become a travel writer, here are five steps to help you on your professional adventure.</p><p>Readers want you to take them on a journey with you. If you can’t pay for them to join you on a sea voyage to the Azores, you’ll have to settle for evoking the five senses and other descriptive writing techniques. </p>",
-  date: Date.today,
-  user_id: User.last.id
-)
-
-file_two = URI.open("https://blog-cdn.reedsy.com/directories/admin/featured_image/723/medium_how-to-become-a-travel-writer-072b11.jpg")
-
-post_two.photo.attach(io: file_two, filename: "post_1.jpg", content_type: "image/jpg")
-
-post_two.save!
-
-puts 'Created 2 posts...'
-
-3.times do |i|
-  comment = Comment.new(
-    content: Faker::Lorem.sentence(word_count: rand(11..25), supplemental: false, random_words_to_add: rand(1..7)),
-    date: Date.new(2023, rand(1..12), rand(1..27)),
-    post: post,
-    user: users[2..10].sample
-  )
-  comment.save!
-
-  puts "Created comment n. #{i + 1}"
-end
-
-puts 'Finished seeding!'
+puts 'Seeded 1 post'

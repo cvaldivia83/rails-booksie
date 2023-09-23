@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   def show
     authorize @post
     @comment = Comment.new
+    @like = Like.new
   end
 
   def new

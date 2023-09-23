@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :comments, only: %i[new create]
   end
 
+  resources :likes, only: %i[new create]
+
   resources :users, only: [:show] do
     collection do
       get :super_booksie

@@ -1,5 +1,11 @@
 <div class="regular-container">
-  <h1 class="main-title"><%= strip_tags(@post.title) %></h1>
+
+  <div class="h-56 flex justify-center items-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(' <%= cl_image_path @post.photo.key, crop: :fill %> ')">
+
+    <h1 class="main-title text-white font-semibold  text-shadow"><%= @post.title %></h1>
+  </div>
+
+
   <div class="flex justify-center my-4 md:my-16">
     <h2 class="book-card_title mr-4 text-violet-700">Booksie: <%= @post.user.username %></h2>
 
@@ -9,12 +15,38 @@
 
   <%=  @post.rich_content %>
 
-  <div class="comments" data-controller="character-counter">
-    <span class="md-paragraph">Let's start a talk:</span> <span class="md-paragraph text-violet-500">leave a review</span>
+  <div class="list">
+    <% @post.comments.each do |comment| %>
+      <%= render 'comments/comment', comment: comment %>
+    <% end %>
 
-    <%= render 'comments/form', post: @post, comment: @comment %>
   </div>
 
+  <div class="social-icons" data-controller="social">
+    <ul >
+      <li class="inline-block text-2xl mx-2 text-neutral-700">
+        <%= simple_form_for(@like) do |f| %>
+          <div class="hidden">
+            <%= f.input :likeable_id, input_html: { value: @post.id } %>
+            <%= f.input :likeable_type, input_html: { value: 'Post' } %>
+          </div>
+          <%= f.button :button do %>
+            <i class="fa-regular fa-heart"></i>
+          <% end %>
+        <% end %>
+      </li>
+
+
+      <li class="inline-block text-2xl mx-2 text-neutral-700" data-social-target="commentBtn" data-action="click->social#openComment"><i class="fa-regular fa-comment"></i></li>
+    </ul>
+
+    <div class="comments hidden transition-transform ease-in-out duration-500 delay-150" data-controller="character-counter" data-social-target="commentForm">
+      <span class="md-paragraph">Let's start a talk:</span> <span class="md-paragraph text-violet-500">leave a review</span>
+
+      <%= render 'comments/form', post: @post, comment: @comment %>
+    </div>
+
+  </div>
 
 
 

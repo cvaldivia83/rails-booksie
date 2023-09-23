@@ -1,13 +1,13 @@
 <div class="post-card">
 
   <%= link_to post_path(post) do  %>
-    <div class="h-56 rounded-lg flex justify-center items-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(' <%= cl_image_path post.photo.key %> ')">
+    <div class="h-56 rounded-lg flex justify-center items-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(' <%= cl_image_path post.photo.key %> '); background-size: cover">
 
       <h1 class="text-white font-semibold text-center text-xl text-shadow"><%= post.title %></h1>
     </div>
   <% end %>
 
-  <% if current_user.admin %>
+  <% if current_user && current_user.admin %>
     <%= link_to post_path(post),
     data: {turbo_method: :delete,
     turbo_confirm: 'Are you sure?'},

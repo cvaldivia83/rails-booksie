@@ -6,7 +6,6 @@ class Book < ApplicationRecord
   has_many :users, through: :bookings
   has_many :users, through: :wishlist
   has_many :ratings, dependent: :destroy
-  has_many :likes, as: :likeable
   has_one_attached :photo
 
   include PgSearch::Model
