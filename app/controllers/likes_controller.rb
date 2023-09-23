@@ -7,7 +7,8 @@ class LikesController < ApplicationController
     if @like.save
       redirect_to allow_other_host: true
     else
-      render :new, status: :unprocessable_entity
+      redirect_to allow_other_host: true, status: :unprocessable_entity
+      flash[:alert] = "You already liked this."
     end
   end
 

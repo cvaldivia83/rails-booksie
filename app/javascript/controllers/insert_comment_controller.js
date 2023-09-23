@@ -3,10 +3,11 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="insert-comment"
 export default class extends Controller {
   static targets = ["form", "items"]
-  static values = { position: String }
+
   connect() {
-    // console.log(this.element, this.formTarget, this.itemsTarget);
+
   }
+
   send(event) {
     event.preventDefault();
 
@@ -21,7 +22,7 @@ export default class extends Controller {
     .then(response => response.json())
     .then((data) => {
       if (data.inserted_item) {
-        this.itemsTarget.insertAdjacentHTML(this.positionValue, data.inserted_item);
+        this.itemsTarget.insertAdjacentHTML('beforeend', data.inserted_item);
       }
       this.formTarget.outerHTML = data.form;
     })
