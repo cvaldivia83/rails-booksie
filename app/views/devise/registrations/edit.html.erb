@@ -1,36 +1,110 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="regular-container">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :photo, as: :file %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+    <div class="form-inputs">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <%= f.input :email,
+            required: true,
+            autofocus: true,
+            label: 'e-mail:',
+            label_html: { class: 'link-devise' },
+            input_html: { class: 'devise-form-input' }
+          %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+        <%= f.input :username,
+            required: true,
+            autofocus: true,
+            label: 'username:',
+            label_html: { class: 'link-devise' },
+            input_html: { class: 'devise-form-input' }
+          %>
+      </div>
+
+      <%= f.input :photo, as: :file,
+          label: false,
+          input_html: { class: 'devise-file-input' }
+        %>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+
+        <%= f.input :city,
+            required: true,
+            label: 'city:',
+            autofocus: true,
+            label_html: { class: 'link-devise' },
+            input_html: { class: 'devise-form-input' }%>
+
+        <%= f.input :country,
+            priority: ["BR"],
+            required: true,
+            label: 'country:',
+            autofocus: true,
+            label_html: { class: 'link-devise' },
+            input_html: { class: 'devise-form-input' }%>
+
+      </div>
+
+      <%= f.input :address,
+          required: true,
+          label: 'address:',
+          wrapper_html: { class: 'mt-3' },
+          label_html: { class: 'link-devise' },
+          input_html: { class: 'devise-form-input' } %>
+
+      <%= f.input :bio,
+          required: true,
+          label: 'bio:',
+          as: :text,
+          wrapper_html: { class: 'mt-3' },
+          label_html: { class: 'link-devise' },
+          input_html: { class: 'devise-form-input' } %>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <%= f.input :password,
+            hint: "leave it blank if you don't want to change it",
+            required: false,
+            label: 'new password:',
+            label_html: { class: 'link-devise' },
+            wrapper_html: { class: 'mt-3'},
+            input_html: { class: 'devise-form-input' } %>
+
+        <%= f.input :password_confirmation,
+            required: false,
+            label: 'confirm new password:',
+            wrapper_html: { class: 'mt-3'},
+            label_html: { class: 'link-devise'},
+            input_html: { class: 'devise-form-input' } %>
+      </div>
+
+      <%= f.input :current_password,
+                  hint: "we need your current password to confirm your changes",
+                  required: true,
+                  label: 'current password:',
+                  label_html: { class: 'link-devise' },
+                  wrapper_html: { class: 'mt-3' },
+                  input_html: { class: 'devise-form-input' } %>
+    </div>
+
+    <div class="form-actions mt-6">
+      <%= f.button :submit, "Update my account", class: 'btn-violet-solid w-full' %>
+    </div>
+  <% end %>
+
+
+  <div class="mt-6">
+    <p class="hint">Unhappy with Booksie?</p>
+
+    <%= button_to "Cancel my booksie account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'devise-paragraph' %>
+
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+  <%#= link_to "Back", :back %>
 
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>
