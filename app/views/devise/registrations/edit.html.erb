@@ -24,7 +24,9 @@
       </div>
 
       <%= f.input :photo, as: :file,
-          label: false,
+          label: 'photo:',
+          label_html: { class: 'link-devise'},
+          wrapper_html: { class: 'mt-3'},
           input_html: { class: 'devise-file-input' }
         %>
 
